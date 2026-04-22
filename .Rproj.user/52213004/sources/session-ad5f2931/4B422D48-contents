@@ -64,7 +64,8 @@ ccl_goals_plot <-
          y = "") +
     theme(axis.text = element_text(size = 12),
           panel.grid.major.y = element_blank(),
-          panel.grid.minor.y = element_blank()) +
+          panel.grid.minor.y = element_blank(),
+          panel.grid.minor.x = element_blank()) +
     geom_text(aes(label = scales::number(pct * 100, accuracy = 1)),
               hjust = 1.2,
               color = "white",
@@ -410,6 +411,75 @@ ccl_outcomes_bi_plot
 # Save
 write.csv(ccl_outcomes_bi, "output/ccl_preview/data/ccl_outcomes_bi.csv", row.names = FALSE)
 ggsave("output/ccl_preview/plots/ccl_outcomes_bi.png", plot = ccl_outcomes_bi_plot, width = 8, height = 6, dpi = 300)
+```
+
+Next, probing to see if the differences go away when we break out by high school vs. not high school. Some small differences arise, including a 75/25 split on whether industry credentials are important among high schools (interesting) that's more of a 50/50 split for schools that don't serve high school grades. 
+
+```{r}
+# n/pct of goals
+ccl_outcomes_hs <- ccl %>% 
+  select(school_id, starts_with("ccl_outcome"), grades_high) %>% 
+  select(-ends_with("measure")) %>% 
+  pivot_longer(
+    cols = -c(school_id, grades_high),
+    names_to = "variable",
+    values_to = "selection"
+  ) %>% 
+  mutate(
+    selection = case_when(
+      selection %in% c("Very important", "Somewhat important") ~ "Important",
+      selection %in% c("Somewhat not important", "Not important") ~ "Not important",
+      TRUE ~ NA_character_
+    ),
+    grades_high = case_when(
+      grades_high == 1 ~ "High school",
+      grades_high == 0 ~ "Not high school",
+      TRUE ~ NA_character_
+    )
+  ) %>% 
+  left_join(labs, by = "variable") %>% 
+  filter(!is.na(selection), !is.na(grades_high)) %>% 
+  group_by(short_label, grades_high, selection) %>% 
+  summarize(n = n(), .groups = "drop") %>% 
+  group_by(short_label, grades_high) %>% 
+  mutate(
+    total = sum(n),
+    pct = n / total,
+    selection = factor(selection, levels = c("Not important", "Important"))
+  ) %>% 
+  ungroup()
+# create plot
+ccl_outcomes_hs_plot <- 
+  ccl_outcomes_hs %>% 
+  ggplot(., aes(pct, reorder(short_label, pct), fill = selection)) +
+    geom_bar(position = "stack", stat = "identity") +
+    scale_fill_manual(values = c("#F2AD4B", "#004B72")) +
+    scale_x_continuous(expand = c(0,0),
+                       limits = c(0, 1),
+                       labels = scales::label_percent()) +
+    scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 30)) +
+    theme_bw() +
+    labs(x = "Percent of CCL schools at given level",
+         y = "",
+         fill = "") +
+    theme(axis.text = element_text(size = 11),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          legend.position = "top",
+          legend.text = element_text(size = 9)) +
+    guides(fill = guide_legend(reverse = TRUE)) +
+    geom_text(aes(label = ifelse(pct > .02, scales::number(pct * 100, accuracy = 1), "")), position = position_stack(),
+              hjust = 1.2,
+              color = "white",
+              size = 4) +
+  facet_wrap(~grades_high)
+ccl_outcomes_hs_plot
+```
+
+```{r eval = FALSE}
+# Save
+write.csv(ccl_outcomes_hs, "output/ccl_preview/data/ccl_outcomes_hs.csv", row.names = FALSE)
+ggsave("output/ccl_preview/plots/ccl_outcomes_hs.png", plot = ccl_outcomes_hs_plot, width = 8, height = 6, dpi = 300)
 ```
 
 ```{r}
