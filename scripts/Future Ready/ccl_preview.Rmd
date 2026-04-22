@@ -1,0 +1,590 @@
+---
+title: "CCL Preview"
+author: "Janette Avelar"
+date: "`r Sys.Date()`"
+always_allow_html: true
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    theme: flatly
+    highlight: tango
+    code_folding: hide
+  word_document:
+    toc: yes
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,    # hides code
+  message = FALSE, # hides messages
+  warning = FALSE  # hides warnings
+)
+pacman::p_load(here, rio, tidyverse, ggplot2, tidytext)
+load(here("data/complete_canopy_2026.RData"))
+ccl <- dat %>% 
+  filter(ccl_alt_tag != "No")
+ccl_restricted <- dat %>% 
+  filter(ccl_alt_tag == "Yes")
+```
+
+# What goals do CCL schools have?
+
+Guiding question: **Which of these goals best describe your reason for innovating? Select up to 3.**
+
+CCL schools are primarily prioritizing increasing student agency, with nearly 70% selecting it as their key goal for engaging in innovative work. Nearly half are motivated by the opportunity to demonstrate what's possible, and 1 in 5 is aiming to improve academics.  
+
+```{r}
+# n/pct of goals
+ccl_goals <- ccl %>% 
+  select(school_id, starts_with("catalyst")) %>% 
+  select(-c(catalyst_key_other, catalyst_key_other_text), -starts_with("catalyst_key_support_")) %>% 
+  pivot_longer(cols = -school_id,
+               names_to = "variable",
+               values_to = "selection") %>% 
+  left_join(labs, by = "variable") %>% 
+  group_by(short_label) %>% 
+  summarize(n = sum(selection),
+            total = n_distinct(school_id),
+            pct = n/total) 
+# create plot
+ccl_goals_plot <- 
+  ccl_goals %>% 
+  ggplot(., aes(pct, reorder(short_label, pct))) +
+    geom_col(fill = "#004B72") +
+    scale_x_continuous(expand = c(0,0),
+                       limits = c(0, 1.05),
+                       labels = scales::label_percent()) +
+    theme_bw() +
+    labs(x = "Percent of CCL schools",
+         y = "") +
+    theme(axis.text = element_text(size = 12),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank()) +
+    geom_text(aes(label = scales::number(pct * 100, accuracy = 1)),
+              hjust = 1.2,
+              color = "white",
+              size = 5)
+ccl_goals_plot
+```
+
+```{r eval = FALSE}
+# Save
+write.csv(ccl_goals, "output/ccl_preview/data/ccl_goals.csv", row.names = FALSE)
+ggsave("output/ccl_preview/plots/ccl_goals.png", plot = ccl_goals_plot, width = 8, height = 6, dpi = 300)
+```
+
+These goals are very similar to those that the wider Canopy sample selected.
+
+```{r}
+# n/pct of goals
+all_goals <- dat %>% 
+  select(school_id, starts_with("catalyst")) %>% 
+  select(-c(catalyst_key_other, catalyst_key_other_text), -starts_with("catalyst_key_support_")) %>% 
+  pivot_longer(cols = -school_id,
+               names_to = "variable",
+               values_to = "selection") %>% 
+  left_join(labs, by = "variable") %>% 
+  group_by(short_label) %>% 
+  summarize(n = sum(selection),
+            total = n_distinct(school_id),
+            pct = n/total) 
+# combine the datasets for comparison plot
+combined <- all_goals %>% 
+  select(short_label, pct) %>% 
+  rename(all_pct = pct) %>% 
+  left_join(ccl_goals, by = "short_label") %>% 
+  rename(ccl_pct = pct) %>% 
+  select(-c(n, total)) %>% 
+  pivot_longer(cols = c(all_pct, ccl_pct),
+               names_to = "group",
+               values_to = "pct") %>% 
+  mutate(group = ifelse(group == "all_pct", "All schools", "CCL schools"))
+# create plot
+all_goals_plot <- 
+  all_goals %>% 
+  ggplot(., aes(pct, reorder(short_label, pct))) +
+    geom_col(fill = "#004B72") +
+    scale_x_continuous(expand = c(0,0),
+                       limits = c(0, 1.05),
+                       labels = scales::label_percent()) +
+    theme_bw() +
+    labs(x = "Percent of CCL schools",
+         y = "") +
+    theme(axis.text = element_text(size = 12),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          panel.grid.minor.x = element_blank()) +
+    geom_text(aes(label = scales::number(pct * 100, accuracy = 1)),
+              hjust = 1.2,
+              color = "white",
+              size = 5)
+# comparison plot
+combined_plot <- combined %>% 
+  ggplot(., aes(pct, reorder(short_label, pct))) +
+    geom_col(fill = "#004B72") +
+    scale_x_continuous(expand = c(0,0),
+                       limits = c(0, 1.05),
+                       labels = scales::label_percent()) +
+    theme_bw() +
+    labs(x = "Percent of CCL schools",
+         y = "") +
+    theme(axis.text = element_text(size = 12),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          panel.grid.minor.x = element_blank()) +
+    geom_text(aes(label = scales::number(pct * 100, accuracy = 1)),
+              hjust = 1.2,
+              color = "white",
+              size = 4) +
+  facet_wrap(~group)
+combined_plot
+```
+
+```{r eval = FALSE}
+# Save
+write.csv(all_goals, "output/ccl_preview/data/all_goals.csv", row.names = FALSE)
+ggsave("output/ccl_preview/plots/all_goals.png", plot = combined_plot, width = 8, height = 6, dpi = 300)
+```
+
+```{r}
+# clean up
+rm(ccl_goals, ccl_goals_plot, all_goals, all_goals_plot)
+```
+
+
+# How is CCL designed to meet those goals?
+
+Guiding question: **In what ways is career-connected learning built into your overall school design?**
+
+Designs follow an expected path - most schools are embedding CCL in their strategic plan/mission, across grade levels, in required coursework/pathways, and with core academics. They're also engaging in individualized advising, schoolwide scheduling structures, and have dedicated staff.  
+
+Far fewer are integrating CCL with SEL structures, providing PD for staff, or assessing workplace competencies/technical skills.  
+
+```{r}
+# n/pct
+design <- ccl %>% 
+  select(school_id, starts_with("ccl_design")) %>% 
+  pivot_longer(cols = -school_id,
+               names_to = "variable",
+               values_to = "selection") %>% 
+  left_join(labs, by = "variable") %>% 
+  group_by(short_label) %>% 
+  summarize(n = sum(selection),
+            total = n_distinct(school_id),
+            pct = n/total) 
+# create plot
+design_plot <- 
+  design %>% 
+  ggplot(., aes(pct, reorder(short_label, pct))) +
+    geom_col(fill = "#004B72") +
+    scale_x_continuous(expand = c(0,0),
+                       limits = c(0, 1.05),
+                       labels = scales::label_percent()) +
+    scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 45)) +
+    theme_bw() +
+    labs(x = "Percent of CCL schools",
+         y = "") +
+    theme(axis.text = element_text(size = 12),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          panel.grid.minor.x = element_blank()) +
+    geom_text(aes(label = scales::number(pct * 100, accuracy = 1)),
+              hjust = -.1,
+              color = "black",
+              size = 5)
+design_plot
+```
+
+```{r eval = FALSE}
+# Save
+write.csv(design, "output/ccl_preview/data/design.csv", row.names = FALSE)
+ggsave("output/ccl_preview/plots/design.png", plot = design_plot, width = 8, height = 6, dpi = 300)
+```
+
+Might be interesting to see if this varies by grade level. (*Note:* How we construct grade level is not mutually exclusive so the total is greater than the number of schools.)
+
+```{r}
+ccl %>% 
+  select(school_id, grades_elementary, grades_middle, grades_high) %>% 
+  pivot_longer(cols = -school_id,
+               names_to = "grade_level",
+               values_to = "n") %>% 
+  group_by(grade_level) %>% 
+  summarize(n = sum(n), .groups = "drop") %>% 
+  mutate(grade_level = factor(grade_level, 
+                              levels = c("grades_elementary", "grades_middle", "grades_high"), 
+                              labels = c("Elementary", "Middle", "High"))) %>% 
+  ggplot(., aes(grade_level, n)) +
+  geom_col(fill = "#004B72") +
+  scale_y_continuous(expand = c(0,0),
+                       limits = c(0, 80)) +
+    theme_bw() +
+    labs(y = "N of CCL schools",
+         x = "") +
+    theme(axis.text = element_text(size = 12),
+          panel.grid.major.x = element_blank()) +
+    geom_text(aes(label = n),
+              vjust = -.5,
+              color = "black",
+              size = 5)
+```
+
+
+```{r}
+# n/pct
+design_grade <- ccl %>% 
+  select(school_id, starts_with("ccl_design"), grades_elementary, grades_middle, grades_high) %>% 
+  pivot_longer(cols = starts_with("ccl_design"),
+               names_to = "variable",
+               values_to = "selection") %>% 
+  pivot_longer(cols = starts_with("grades_"),
+               names_to = "grade_level",
+               values_to = "grade_selected",
+               names_prefix = "grades_") %>% 
+  filter(selection == 1, grade_selected == 1) %>% 
+  left_join(labs, by = "variable") %>% 
+  group_by(short_label, grade_level) %>% 
+  summarize(n = n_distinct(school_id), .groups = "drop") %>% 
+  mutate(total = case_when(
+    grade_level == "elementary" ~ 30,
+    grade_level == "middle" ~ 41,
+    grade_level == "high" ~ 71
+  ),
+  pct = n/total,
+  grade_level = factor(grade_level, 
+                       levels = c("elementary", "middle", "high"), 
+                       labels = c("Elementary", "Middle", "High")))
+# create plot
+design_grade_plot <- 
+  design_grade %>% 
+  ggplot(., aes(pct, reorder(short_label, pct))) +
+    geom_col(fill = "#004B72") +
+    scale_x_continuous(expand = c(0,0),
+                       limits = c(0, 1.05),
+                       labels = scales::label_percent()) +
+    scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 30)) +
+    theme_bw() +
+    labs(x = "Percent of CCL schools",
+         y = "") +
+    theme(axis.text.x = element_text(size = 9),
+          axis.text.y = element_text(size = 12),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          panel.grid.minor.x = element_blank()) +
+    geom_text(aes(label = scales::number(pct * 100, accuracy = 1)),
+              hjust = -.1,
+              color = "black",
+              size = 4) +
+    facet_wrap(~grade_level)
+design_grade_plot
+```
+
+```{r eval = FALSE}
+# Save
+write.csv(design, "output/ccl_preview/data/design_grade.csv", row.names = FALSE)
+ggsave("output/ccl_preview/plots/design_grade.png", plot = design_grade_plot, width = 10, height = 6, dpi = 300)
+```
+
+```{r}
+# Clean up
+rm(design, design_plot, design_grade, design_grade_plot)
+```
+
+
+# What outcomes are CCL schools prioritizing and measuring? [i.e., how do they know if they're successful?]
+
+Guiding question: **How important are the following student outcomes in your school’s CCL approach?**
+
+It's a little difficult to get labels into this plot given most schools did not select any of the listed outcomes as not important. However, there are a few pieces here that really stand out:  
+- 8 of the 96 CCL schools indicated that industry credentials are "Not important" while another 20 indicated they are "Somewhat not important"  
+- 13 of the 96 CCL schools indicated that social capital is "Not important" (1) or "Somewhat not important" (12)  
+- Nearly all (93% or 89) indicated that engagement is "Very important" - standing out as a clear priority for CCL schools  
+- Belonging (90%) and durable skills (89%) were also at the top of the "Very important" list  
+- No schools indicated that engagement, agency and self-direction, identity and purpose, or durable skills are "Not important" or "Somewhat not important"  
+
+```{r}
+# n/pct of goals
+ccl_outcomes <- ccl %>% 
+  select(school_id, starts_with("ccl_outcome")) %>% 
+  select(-ends_with("measure")) %>% 
+  pivot_longer(cols = -school_id,
+               names_to = "variable",
+               values_to = "selection") %>% 
+  mutate(rate = 1) %>% 
+  left_join(labs, by = "variable") %>% 
+  filter(!is.na(selection)) %>% 
+  group_by(short_label, selection) %>% 
+  summarize(n = sum(rate), .groups = "drop") %>% 
+  group_by(short_label) %>% 
+  mutate(total = sum(n),
+         pct = n/total) %>% 
+  mutate(selection = factor(selection, levels = c("Not important", "Somewhat not important", "Somewhat important", "Very important")))
+# create plot
+ccl_outcomes_plot <- 
+  ccl_outcomes %>% 
+  ggplot(., aes(pct, reorder(short_label, pct), fill = selection)) +
+    geom_bar(position = "stack", stat = "identity") +
+    scale_fill_manual(values = c("#F2AD4B", "#F9DAAF", "#0178BA", "#004B72")) +
+    scale_x_continuous(expand = c(0,0),
+                       limits = c(0, 1),
+                       labels = scales::label_percent()) +
+    scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 30)) +
+    theme_bw() +
+    labs(x = "Percent of CCL schools",
+         y = "",
+         fill = "") +
+    theme(axis.text = element_text(size = 11),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          legend.position = "top",
+          legend.text = element_text(size = 8)) +
+    guides(fill = guide_legend(reverse = TRUE)) 
+ccl_outcomes_plot
+```
+
+```{r eval = FALSE}
+# Save
+write.csv(ccl_outcomes, "output/ccl_preview/data/ccl_outcomes.csv", row.names = FALSE)
+ggsave("output/ccl_preview/plots/ccl_outcomes.png", plot = ccl_outcomes_plot, width = 8, height = 6, dpi = 300)
+```
+
+Here's a more simplified version of the same plot:
+
+```{r}
+# n/pct of goals
+ccl_outcomes_bi <- ccl %>% 
+  select(school_id, starts_with("ccl_outcome")) %>% 
+  select(-ends_with("measure")) %>% 
+  pivot_longer(cols = -school_id,
+               names_to = "variable",
+               values_to = "selection") %>% 
+  mutate(selection = case_when(
+    selection == "Very important" ~ "Important",
+    selection == "Somewhat important" ~ "Important",
+    selection == "Somewhat not important" ~ "Not important",
+    selection == "Not important" ~ "Not important"
+  )) %>% 
+  mutate(rate = 1) %>% 
+  left_join(labs, by = "variable") %>% 
+  filter(!is.na(selection)) %>% 
+  group_by(short_label, selection) %>% 
+  summarize(n = sum(rate), .groups = "drop") %>% 
+  group_by(short_label) %>% 
+  mutate(total = sum(n),
+         pct = n/total,
+         selection = factor(selection, levels = c("Not important", "Important"))) %>% 
+  ungroup()
+# create plot
+ccl_outcomes_bi_plot <- 
+  ccl_outcomes_bi %>% 
+  ggplot(., aes(pct, reorder(short_label, pct), fill = selection)) +
+    geom_bar(position = "stack", stat = "identity") +
+    scale_fill_manual(values = c("#F2AD4B", "#004B72")) +
+    scale_x_continuous(expand = c(0,0),
+                       limits = c(0, 1),
+                       labels = scales::label_percent()) +
+    scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 30)) +
+    theme_bw() +
+    labs(x = "Percent of CCL schools",
+         y = "",
+         fill = "") +
+    theme(axis.text = element_text(size = 11),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          legend.position = "top",
+          legend.text = element_text(size = 9)) +
+    guides(fill = guide_legend(reverse = TRUE)) +
+    geom_text(aes(label = ifelse(pct > .02, scales::number(pct * 100, accuracy = 1), "")), position = position_stack(),
+              hjust = 1.2,
+              color = "white",
+              size = 4)
+ccl_outcomes_bi_plot
+```
+
+```{r eval = FALSE}
+# Save
+write.csv(ccl_outcomes_bi, "output/ccl_preview/data/ccl_outcomes_bi.csv", row.names = FALSE)
+ggsave("output/ccl_preview/plots/ccl_outcomes_bi.png", plot = ccl_outcomes_bi_plot, width = 8, height = 6, dpi = 300)
+```
+
+```{r}
+# Clean up
+rm(ccl_outcomes, ccl_outcomes_bi, ccl_outcomes_bi_plot, ccl_outcomes_plot)
+```
+
+Among CCL schools that indicated some outcome is important, how many are actually measuring progress toward that goal?
+
+Guiding question: **For the outcome(s) you indicated are important above, how does your school currently measure progress?**
+
+```{r}
+# n/pct of goals
+ccl_measures <- ccl %>% 
+  select(school_id, starts_with("ccl_outcome")) %>% 
+  select(school_id, ends_with("measure"))  %>% 
+  pivot_longer(cols = -school_id,
+               names_to = "variable",
+               values_to = "selection") %>% 
+  mutate(rate = 1,
+         selection = ifelse(selection == "We notice it informally (e.g., anecdotes, observations, conversations)", "We notice it informally", selection)) %>% 
+  left_join(labs, by = "variable") %>% 
+  filter(!is.na(selection)) %>% 
+  group_by(short_label, selection) %>% 
+  summarize(n = sum(rate), .groups = "drop") %>% 
+  group_by(short_label) %>% 
+  mutate(total = sum(n),
+         pct = n/total) %>% 
+  mutate(selection = factor(selection, 
+                            levels = c("We do not measure this", 
+                                       "We notice it informally", 
+                                       "We collect data for some students or contexts", 
+                                       "We collect data schoolwide in a systematic way"),
+                            labels = c("We do not measure this",
+                                       "We notice it informally",
+                                       "We collect some data",
+                                       "We collect it systematically")))
+# create plot
+ccl_measures_plot <- 
+  ccl_measures %>% 
+  ggplot(., aes(pct, reorder_within(short_label, pct, selection))) +
+    geom_col(fill = "#004B72") +
+    scale_x_continuous(expand = c(0,0),
+                       limits = c(0, 1),
+                       labels = scales::label_percent()) +
+    theme_bw() +
+    labs(x = "Percent of CCL schools",
+         y = "") +
+    theme(axis.text = element_text(size = 10),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank()) +
+    facet_wrap(~selection, scales = "free_y") +
+    scale_y_reordered()
+ccl_measures_plot
+```
+
+```{r eval = FALSE}
+# Save
+write.csv(ccl_measures, "output/ccl_preview/data/ccl_measures.csv", row.names = FALSE)
+ggsave("output/ccl_preview/plots/ccl_measures.png", plot = ccl_measures_plot, width = 8, height = 6, dpi = 300)
+```
+
+To make it easier to compare, here's a version comparing systematic/some/none.  
+
+One thing that pops out in this version that isn't obvious in the prior one is that only 75% of CCL schools said they are gathering information in academic success? That seems really surprising. And schools are not measuring progress toward economic mobility (31%) as much as you'd expect.
+
+```{r}
+# n/pct of goals
+ccl_measures_cat <- ccl %>% 
+  select(school_id, starts_with("ccl_outcome")) %>% 
+  select(school_id, ends_with("measure"))  %>% 
+  pivot_longer(cols = -school_id,
+               names_to = "variable",
+               values_to = "selection") %>% 
+  mutate(rate = 1,
+         selection = case_when(
+           selection == "We notice it informally (e.g., anecdotes, observations, conversations)" ~ "We measure in some way",
+           selection == "We collect data for some students or contexts" ~ "We measure in some way",
+           TRUE ~ selection
+         )) %>% 
+  left_join(labs, by = "variable") %>% 
+  filter(!is.na(selection)) %>% 
+  group_by(short_label, selection) %>% 
+  summarize(n = sum(rate), .groups = "drop") %>% 
+  group_by(short_label) %>% 
+  mutate(total = sum(n),
+         pct = n/total) %>% 
+  mutate(selection = factor(selection, 
+                            levels = c("We do not measure this", 
+                                       "We measure in some way", 
+                                       "We collect data schoolwide in a systematic way"),
+                            labels = c("We do not measure this",
+                                       "We measure in some way",
+                                       "We collect it systematically")))
+# create plot
+ccl_measures_cat_plot <- 
+  ccl_measures_cat %>% 
+  ggplot(., aes(pct, reorder(short_label, pct), fill = selection)) +
+    geom_bar(position = "stack", stat = "identity") +
+    scale_fill_manual(values = c("#F2AD4B", "#91BF43", "#004B72")) +
+    scale_x_continuous(expand = c(0,0),
+                       limits = c(0, 1),
+                       labels = scales::label_percent()) +
+    scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 30)) +
+    theme_bw() +
+    labs(x = "Percent of CCL schools",
+         y = "",
+         fill = "") +
+    theme(axis.text = element_text(size = 11),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          legend.position = "top") +
+    guides(fill = guide_legend(reverse = TRUE)) +
+    geom_text(aes(label = ifelse(pct > .02, scales::number(pct * 100, accuracy = 1), "")), position = position_stack(),
+              hjust = 1.2,
+              color = "white",
+              size = 4)
+ccl_measures_cat_plot
+```
+
+```{r eval = FALSE}
+# Save
+write.csv(ccl_measures_cat, "output/ccl_preview/data/ccl_measures_cat.csv", row.names = FALSE)
+ggsave("output/ccl_preview/plots/ccl_measures_cat.png", plot = ccl_measures_cat_plot, width = 8, height = 6, dpi = 300)
+```
+
+```{r}
+# Clean up
+rm(ccl_measures, ccl_measures_cat, ccl_measures_cat_plot, ccl_measures_plot)
+```
+
+
+# What gets in the way of measuring progress toward their goals? [i.e., barriers and enablers]
+
+Guiding question: **What are the biggest barriers your school faces when measuring progress toward the outcomes you care about?**
+
+Two clear barriers stand out: over half of CCL schools cited that collecting data (51%) and having the capacity to regularly use that data (52%) are the biggest barriers their school faces when measuring progress. A quarter (26%) also reported they're unsure what assessments or measures to use.  
+
+```{r}
+# n/pct
+barriers <- ccl %>% 
+  select(school_id, starts_with("ccl_barrier")) %>% 
+  pivot_longer(cols = -school_id,
+               names_to = "variable",
+               values_to = "selection") %>% 
+  left_join(labs, by = "variable") %>% 
+  group_by(full_label) %>% 
+  summarize(n = sum(selection),
+            total = n_distinct(school_id),
+            pct = n/total) 
+# create plot
+barriers_plot <- 
+  barriers %>% 
+  ggplot(., aes(pct, reorder(full_label, pct))) +
+    geom_col(fill = "#004B72") +
+    scale_x_continuous(expand = c(0,0),
+                       limits = c(0, 1.05),
+                       labels = scales::label_percent()) +
+    scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 45)) +
+    theme_bw() +
+    labs(x = "Percent of CCL schools",
+         y = "") +
+    theme(axis.text = element_text(size = 12),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          panel.grid.minor.x = element_blank()) +
+    geom_text(aes(label = scales::number(pct * 100, accuracy = 1)),
+              hjust = -.1,
+              color = "black",
+              size = 5)
+barriers_plot
+```
+
+```{r eval = FALSE}
+# Save
+write.csv(barriers, "output/ccl_preview/data/barriers.csv", row.names = FALSE)
+ggsave("output/ccl_preview/plots/barriers.png", plot = barriers_plot, width = 8, height = 6, dpi = 300)
+```

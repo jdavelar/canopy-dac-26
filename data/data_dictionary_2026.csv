@@ -1,0 +1,561 @@
+Field,Variable Description,Corresponding Survey Question,Response Types,Source
+nominator,The organization(s) which nominated the school or learning environment,What organization do you work for or represent?,Open response,Nomination survey
+school_id,Canopy school ID number assigned by the Canopy project (metadata),Canopy ID,Internally generated unique identifier,Canopy created variable
+nces_id,"Corresponding NCES ID, if applicable, used to collect extant data.",NCES ID,,NCES
+school_name,Name of the school,School name:,Open response,Externally generated unique identifier
+school_city,Street address where the school is located,School city:,Open response,School survey
+school_address,City where the school is located,School address:,Open response,School survey
+school_state,State where the school is located,School state:,Open response,School survey
+school_district,School district,School district:,Open response,School survey
+website,School website,School website:,Open response,School survey
+contact_name,Public contact's name for the learning environment.,Please share a public contact for your school.,Open response,School survey
+contact_role,Public contact's role at the learning environment.,Please share a public contact for your school.,Open response,School survey
+contact_email,Public contact's emaill address at the learning environment.,Please share a public contact for your school.,Open response,School survey
+school_type,Describes the school type,Which option best describes your school or learning environment?,"Public district school
+Public charter school
+Independent (private) school",School survey
+school_desc_homeschool,Indicates whether the school identifies as a home school,Do any of the following descriptors apply to your school or learning environment?,1 if Homeschooling cooperative selected; else 0,School survey
+school_desc_hybrid,Indicates whether the school identifies as a hybrid school,Do any of the following descriptors apply to your school or learning environment?,1 if Hybrid school selected; else 0,School survey
+school_desc_micro,Indicates whether the school identifies as a microschool,Do any of the following descriptors apply to your school or learning environment?,1 if Microschool selected; else 0,School survey
+school_desc_part_time,Indicates whether the school identifies as a part time school,Do any of the following descriptors apply to your school or learning environment?,1 if Part time school selected; else 0,School survey
+school_desc_sws,Indicates whether the school identifies as a school within a school,Do any of the following descriptors apply to your school or learning environment?,1 if School-within-school selected; else 0,School survey
+school_desc_virtual,Indicates whether the school identifies as a virtual school,Do any of the following descriptors apply to your school or learning environment?,1 if Virtual school selected; else 0,School survey
+school_desc_other,Indicates whether the school chose to self-identify an additional school descriptor,Do any of the following descriptors apply to your school or learning environment?,1 if Other selected; else 0,School survey
+school_desc_other_text,Self-identified school descriptor,Do any of the following descriptors apply to your school or learning environment?,Text provided to specify Other,School survey
+school_locale,A combined variable with an exclusive designation for the geographic area the learning environment serves.,,"Urban
+Suburban
+Rural
+Multiple",Canopy created variable
+locale_urban,Indicates if the learning environment serves students from urban geographic areas.,Which geography describes the student population your school serves?,1 if Urban selected; else 0,School survey
+locale_suburban,Indicates if the learning environment serves students from suburban geographic areas.,Which geography describes the student population your school serves?,1 if Suburban selected; else 0,School survey
+locale_rural,Indicates if the learning environment serves students from rural geographic areas.,Which geography describes the student population your school serves?,1 if Rural selected; else 0,School survey
+locale_multiple,Indicates if the learning environment serves students from multiple types of geographic areas.,,"1 if a combination Urban, Rural, and/or Suburban selected; else 0",Canopy created variable
+locale_other,"Indicates if the learning environment serves students from geographic areas that are not rural, suburban, urban, or a combination of geographic areas.",Which geography describes the student population your school serves?,1 if Other selected; else 0,School survey
+locale_other_text,Self-reported geographic area the learning environment serves.,Which geography describes the student population your school serves?,Text provided to specify Other,School survey
+school_enrollment,"Total number of students the learning environment serves. Number describes a mix of self-reported and NCES data as leaders are asked to verify the number provided by NCES, if applicable.",How many learners attend [SCHOOL NAME]?,Numeric,School survey
+grades_pk,Indicates whether the learning environment offers pre-kindergarten services.,Which grades does your learning environment serve?,1 if Pre-Kindergarten selected; else 0,School survey
+grades_k,Indicates whether the learning environment serves kindergarten or equivalent grade.,Which grades does your learning environment serve?,1 if Kindergarten selected; else 0,School survey
+grades_1,Indicates whether the learning environment serves first grade or equivalent.,Which grades does your learning environment serve?,1 if 1st grade selected; else 0,School survey
+grades_2,Indicates whether the learning environment serves second grade or equivalent.,Which grades does your learning environment serve?,1 if 2nd grade selected; else 0,School survey
+grades_3,Indicates whether the learning environment serves third grade or equivalent.,Which grades does your learning environment serve?,1 if 3rd grade selected; else 0,School survey
+grades_4,Indicates whether the learning environment serves fourth grade or equivalent.,Which grades does your learning environment serve?,1 if 4th grade selected; else 0,School survey
+grades_5,Indicates whether the learning environment serves fifth grade or equivalent.,Which grades does your learning environment serve?,1 if 5th grade selected; else 0,School survey
+grades_6,Indicates whether the learning environment serves sixth grade or equivalent.,Which grades does your learning environment serve?,1 if 6th grade selected; else 0,School survey
+grades_7,Indicates whether the learning environment serves seventh grade or equivalent.,Which grades does your learning environment serve?,1 if 7th grade selected; else 0,School survey
+grades_8,Indicates whether the learning environment serves eighth grade or equivalent.,Which grades does your learning environment serve?,1 if 8th grade selected; else 0,School survey
+grades_9,Indicates whether the learning environment serves ninth grade or equivalent.,Which grades does your learning environment serve?,1 if 9th grade selected; else 0,School survey
+grades_10,Indicates whether the learning environment serves tenth grade or equivalent.,Which grades does your learning environment serve?,1 if 10th grade selected; else 0,School survey
+grades_11,Indicates whether the learning environment serves eleventh grade or equivalent.,Which grades does your learning environment serve?,1 if 11th grade selected; else 0,School survey
+grades_12,Indicates whether the learning environment serves twelfth grade or equivalent.,Which grades does your learning environment serve?,1 if 12th grade selected; else 0,School survey
+grades_past_12,Indicates whether the learning environment serves beyond twelfth grade or equivalent.,Which grades does your learning environment serve?,1 if Past 12th grade selected; else 0,School survey
+grades_other,Indicates whether the learning environment serves grade(s) that fall outside of the PK-12+ grade range.,Which grades does your learning environment serve?,1 if Other selected; else 0,School survey
+grades_other_text,Self-reported grades served that fall outside of PK-12+ range.,Which grades does your learning environment serve?,Text provided to specify Other,School survey
+grades_elementary,Indicates whether the learning environment serves any elementary grades 1-5.,,1 if school is considered an elementary school by Canopy's definition; else 0,Canopy created variable
+grades_middle,Indicates whether the learning environment serves middle grades 7 and middle grades 6 or 8.,,1 if school is considered a middle school by Canopy's definition; else 0,Canopy created variable
+grades_high,Indicates whether the learning environment serves any high school grades 10-12.,,1 if school is considered a high school by Canopy's definition; else 0,Canopy created variable
+pct_aian,Percentage of students attending the learning environment identifying as American Indian or Alaska Native.,What is the racial/ethnic demographic breakdown of your learners?,Numeric,School survey
+pct_asian,Percentage of students attending the learning environment identifying as Asian.,What is the racial/ethnic demographic breakdown of your learners?,Numeric,School survey
+pct_black,Percentage of students attending the learning environment identifying as Black or African American.,What is the racial/ethnic demographic breakdown of your learners?,Numeric,School survey
+pct_latinx,Percentage of students attending the learning environment identifying as Hispanic or Latinx.,What is the racial/ethnic demographic breakdown of your learners?,Numeric,School survey
+pct_nhpi,Percentage of students attending the learning environment identifying as Native Hawaiian or Pacific Islander.,What is the racial/ethnic demographic breakdown of your learners?,Numeric,School survey
+pct_white,Percentage of students attending the learning environment identifying as White.,What is the racial/ethnic demographic breakdown of your learners?,Numeric,School survey
+pct_multiple,Percentage of students attending the learning environment identifying with 2+ races/ethnicities.,What is the racial/ethnic demographic breakdown of your learners?,Numeric,School survey
+pct_bipoc,Percentage of students attending the learning environment who do not identify as White.,,Numeric,Canopy created variable
+pct_ell,Percentage of students attending the learning environment who are classified as an English learner.,What percentage of your learners are classified as English learners?,Numeric,School survey
+pct_frpl,Percentage of students attending the learning environment who are eligible for free and reduced-price lunch.,What percentage of your learners are eligible for free and reduced lunch or are considered economically disadvantaged?,Numeric,School survey
+pct_swd,Percentage of students attending the learning environment with a documented disability or an IEP.,What percentage of your learners have a disability?,Numeric,School survey
+student_experience,"Total number of students the learning environment serves. Number describes a mix of self-reported and NCES data as leaders are asked to verify the number provided by NCES, if applicable.",How many learners attend [SCHOOL NAME]?,Numeric,School survey
+catalyst_key_cutting_edge,Indicates that being on the cutting edge and demonstrating what's possible is one of the top 3 reasons the learning environment is innovating.,Which of these goals best describe your reason for innovating? Select up to 3.,1 if Demonstrate what’s possible for other schools selected; else 0,School survey
+catalyst_key_student_agency,Indicates that increasing student agency is one of the top 3 reasons the learning environment is innovating.,Which factors are currently leading to innovation in your learning environment?,1 if Increase student agency selected; else 0,School survey
+catalyst_key_teacher_agency,Indicates that increasing teacher agency is one of the top 3 reasons the learning environment is innovating.,Which factors are currently leading to innovation in your learning environment?,1 if Increase teacher agency selected; else 0,School survey
+catalyst_key_demographics,Indicates that adapting to a change in demographics is one of the top 3 reasons the learning environment is innovating.,Which factors are currently leading to innovation in your learning environment?,1 if Adapt to a change in demographics in our community selected; else 0,School survey
+catalyst_key_school_culture,Indicates that improving school culture is one of the top 3 reasons the learning environment is innovating.,Which of these goals best describe your reason for innovating? Select up to 3.,1 if Improve school culture selected; else 0,School survey
+catalyst_key_achievement,Indicates that improving academic achievement is one of the top 3 reasons the learning environment is innovating.,Which of these goals best describe your reason for innovating? Select up to 3.,1 if Improve academic achievement selected; else 0,School survey
+catalyst_key_support,Indicates that better supporting a specific student population is one of the top 3 reasons the learning environment is innovating.,Which of these goals best describe your reason for innovating? Select up to 3.,1 if Better support a specific population of students selected; else 0,School survey
+catalyst_key_stakeholders,Indicates that responding to stakeholder demand or advocacy is one of the top 3 reasons the learning environment is innovating.,Which of these goals best describe your reason for innovating? Select up to 3.,1 if Respond to stakeholder demand or advocacy selected; else 0,School survey
+catalyst_key_inequities,Indicates that addressing systemic inequities is one of the top 3 reasons the learning environment is innovating.,Which of these goals best describe your reason for innovating? Select up to 3.,1 if Address systemic inequities selected; else 0,School survey
+catalyst_key_absence,Indicates that addressing chronic absenteeism is one of the top 3 reasons the learning environment is innovating.,Which of these goals best describe your reason for innovating? Select up to 3.,1 if Address chronic absenteeism selected; else 0,School survey
+catalyst_key_mental_health,Indicates that improving student mental health is one of the top 3 reasons the learning environment is innovating.,Which of these goals best describe your reason for innovating? Select up to 3.,1 if Improve student mental health selected; else 0,School survey
+catalyst_key_other,Indicates that one of the top 3 reasons the learning environment is innovating was not reflected in response options.,Which of these goals best describe your reason for innovating? Select up to 3.,1 if Other selected; else 0,School survey
+catalyst_key_other_text,Self-reported for innovating.,Which of these goals best describe your reason for innovating? Select up to 3.,Text provided to specify Other,School survey
+catalyst_key_support_swd,Indicates that better supporting students with disabilities is one of the top 3 reasons the learning environment is innovating.,Which specific population of students are you aiming to better support?,NA if question was not displayed; 1 if Students with disabilities selected; else 0,School survey
+catalyst_key_support_ell,Indicates that better supporting students classified as English learners is one of the top 3 reasons the learning environment is innovating.,Which specific population of students are you aiming to better support?,NA if question was not displayed; 1 if Students classified as English learners selected; else 0,School survey
+catalyst_key_support_mll,Indicates that better supporting multilingual students is one of the top 3 reasons the learning environment is innovating.,Which specific population of students are you aiming to better support?,NA if question was not displayed; 1 if Multilingual students selected; else 0,School survey
+catalyst_key_support_houseless,Indicates that better supporting students who are unhoused or facing housing insecurities is one of the top 3 reasons the learning environment is innovating.,Which specific population of students are you aiming to better support?,NA if question was not displayed; 1 if Students experiencing housing insecurity or homelessness selected; else 0,School survey
+catalyst_key_support_frpl,Indicates that better supporting economically disadvantaged students is one of the top 3 reasons the learning environment is innovating.,Which specific population of students are you aiming to better support?,NA if question was not displayed; 1 if Economically disadvantaged students selected; else 0,School survey
+catalyst_key_support_bipoc,Indicates that better supporting students of color is one of the top 3 reasons the learning environment is innovating.,Which specific population of students are you aiming to better support?,NA if question was not displayed; 1 if Students of color selected; else 0,School survey
+catalyst_key_support_newcomer,Indicates that better supporting newcomer students is one of the top 3 reasons the learning environment is innovating.,Which specific population of students are you aiming to better support?,NA if question was not displayed; 1 if Newcomer students selected; else 0,School survey
+catalyst_key_support_foster,Indicates that better supporting students in the foster care system is one of the top 3 reasons the learning environment is innovating.,Which specific population of students are you aiming to better support?,NA if question was not displayed; 1 if Students in the foster care system selected; else 0,School survey
+catalyst_key_support_jj,Indicates that better supporting students in the juvenile justice system is one of the top 3 reasons the learning environment is innovating.,Which specific population of students are you aiming to better support?,NA if question was not displayed; 1 if Students in the juvenile justice system selected; else 0,School survey
+catalyst_key_support_slife,Indicates that better supporting students with limited or interrupted formal education is one of the top 3 reasons the learning environment is innovating.,Which specific population of students are you aiming to better support?,NA if question was not displayed; 1 if Students with interrupted formal education selected; else 0,School survey
+practices_adaptive_content,"Adaptive learning software uses algorithms or artificial intelligence to adapt content to individual learners. This may include tailoring the pace, difficulty, or format of instruction based on real-time assessments of student progress.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_advancement_mastery,"Students advance to new topics when they have demonstrated mastery of previous competencies, rather than advancing with only a minimal passing grade.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_advisories,"Small groups of students meet regularly (daily or weekly, over multiple years) with adult advisors to set learning goals, reflect on progress, and build positive relationships.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_ai_literacy,"Students learn how artificial intelligence systems work, how to critically evaluate AI systems and their output, and how to use AI effectively and responsibly.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_ai_materials,"The learning environment uses artificial intelligence tools to help generate or adapt student-facing learning materials such as rubrics, assignments, assessments, etc.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_ai_productivity,"The learning environment uses artificial intelligence tools to help streamline teacher tasks such as lesson planning, project design, communication, etc.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_ai_tutoring,"Students get additional help and support through software powered by artificial intelligence. The program may give instant feedback, answer questions, and suggest practice problems tailored to each student’s needs, helping them learn at their own pace.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_anti_racist,The learning environment is building a culture of taking direct action to dismantle policies and practices that create or perpetuate inequality between racial groups.,Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_apprenticeships,"Students engage in paid, multi-year training programs that combine on-the-job learning with related classroom instruction, often leading to industry credentials.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_assessments_agency,"Tests are administered to measure student performance on various dimensions of self-directed learning (e.g., self-awareness, agency, goal-setting and planning, etc.)",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_assessments_career,The learning environment assesses students' readiness to enter the workforce and pursue a career path.,Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_assessments_deeper,"The learning environment assesses deeper learning and 21st century skills beyond academic content mastery, e.g. communication, collaboration, critical thinking, etc.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_assessments_sel,"The learning environment assesses social-emotional and non-cognitive skills, e.g., self-management, social awareness, relationship skills, etc.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_blended_learning,"Students learn both online and in-person, in which both modalities are connected to provide an integrated learning experience, and with some element of student control over the time, place, path, or pace of learning.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_career_advising,"Students receive ongoing, individualized guidance to explore career interests, navigate pathways, reflect on work-based learning experiences, align coursework to short- and long-term goals, apply to programs or job opportunities, and prepare for next steps after graduation.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_career_exploration,"Students regularly engage in structured career exploration (e.g., industry talks, job shadowing, job fairs, mock interviews, virtual career tours, panels, site visits) that broaden their understanding of future options.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_career_prep,"The career-connected learning question has the definition integrated as part of it but including for reference:
+The school helps students link what they learn in school to real-world futures—through exploration, skill-building, guidance from trusted adults, and hands-on experiences. ",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_client_projects,"As part of their coursework, students work on real-world projects co-designed or sponsored by industry partners.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_colead_cbo,"The learning environment involves community-based organizations in shared decision-making, and communicates how CBO input has informed decision-making. This may include strategies such as offering learning hubs and integrating expertise into schools.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_colead_family,"The learning environment involves families in shared decision-making, and communicates how family input has informed decision-making. This may include strategies such as participatory budgeting, family advisory groups, etc.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_colead_industry,"The learning environment involves industry-based partners in shared decision-making, and communicates how these partners' input has informed decision-making. This may include strategies such as designing career pathways, developing curriculum and assessments, or offering validated work-based learning as a core part of the school's
+design.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_colead_students,"The learning environment involves students in shared decision-making, and communicates how student input has informed decision-making. This may include strategies such as student advisory councils, input on curriculum and culture-setting, etc.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_colead_teachers,"The learning environment involves teachers in shared decision-making, and communicates how teacher input has informed decision-making. Teachers make decisions in areas such as learning environment success, curriculum, budget, evaluating their colleagues, selecting personnel, and more.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_coleadership,"The learning environment involves stakeholders in the process of decision-making and communicates how the input gathered from stakeholders informs decision-making. This may include teachers, students, families, community-based organizations, industry-based partners, or others.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_college_advising,"Students receive ongoing, individualized guidance to explore higher education options, align coursework to short- and long-term goals, apply to programs, complete the FAFSA application, and prepare for next steps after graduation.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_community_partnerships,"Partnerships with businesses and the community help to facilitate experiential learning, internships, mentorships, tutoring, etc.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_community_supports,"The learning environment offers (or partners to offer) social and wraparound support services to meet the needs of families and the community at large, e.g. through medical care, nutritional services, adult learning, childcare, family counseling, financial advising.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_competency_education,"The learning environment's model is designed to ensure students are becoming proficient by advancing on demonstrated mastery. May include a deliberate focus on student agency, transparent learning expectations, timely/differentiated supports, varied pacing and pathways, meaningful and formative assessment.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_coop_ed,"Students alternate between school and structured, credit-bearing work placements connected to their studies.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_culturally_responsive,Pedagogy and curriculum are designed to support students who have been marginalized to be independent learners. Core barriers to learning for historically marginalized learners are examined and removed.,Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_disaggregated_participation_data,"The learning environment tracks data on the extent to which different groups of students (e.g., by race, gender, disability, socioeconomic status) participate in programs to ensure that students have equitable access.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_dual_language,A form of bilingual education in which students are taught literacy and content in two languages.,Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_early_college,"A hybrid of high school and college, where all students take both high school and college classes simultaneously, earning credit towards a college degree.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_extended_time,"The learning environment increases total instructional time through a longer school day, extended school year, or year-round schedule.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_flexible_staffing,"The learning environment makes creative use of human capital, e.g. through a tutor residency model, outside experts, master teachers or teacher mentors, etc.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_grading_mastery,"Grades are reported on a standards-based report card, and focus on the specific competencies students are expected to develop.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_higher_ed_partnerships,"Formal partnerships with colleges or training providers support students’ learning and postsecondary pathways. This may include dual credit or early college opportunities, transition advising, curriculum or enrichment partnerships, or school models embedded within or affiliated with a higher education institution.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_inclusion,"Students who typically receive pull-out services or instruction in segregated classrooms (e.g., students classified as English Learners, students with disabilities) are integrated with appropriate supports in place to support learning, language ability, and full participation in curriculum.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_industry_credentials,"Students can earn industry-issued or recognized credentials as a verification of a their qualifications or competence, in fields such as agriculture, hospitality & tourism, health, information technology, etc.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_industry_educators,Teachers or coaches with recent industry experience bring real-world expertise into instruction.,Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_industry_pathways,"The school offers one or more sequences of learning (including both academic and technical courses) focused on a specific industry or career sector, designed to build depth of knowledge and skills related to that field.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_internships,"Students complete structured, supervised workplace experiences aligned to career interests, typically for a defined period and with reflection or credit tied to school goals.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_interoperability,"Data from multiple platforms or software programs is integrated in a ""data dashboard"" reflecting overall student learning and progress.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_learner_profiles,"Profiles extend across multiple years and may include how the student is performing, as well as personal factors like who they are, what inspires them, and how they best learn.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_learning_paths,"Students follow unique learning pathways tailored to their needs, interests, and passions.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_mental_health,The learning environment offers (or partners to offer) comprehensive counseling and mental health services for students.,Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_mentoring,Students connect with adults in and/or outside of the learning environment for 1:1 mentoring and regular check-in meetings.,Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_micro_credentials,Students earn verified micro-credentials demonstrating skills linked to employability or technical competencies.,Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_mtss_academics,"The learning environment has an explicit multi-tiered system of support wherein students progress is monitored for all students, and students who are progressing at a slower pace are provided with structured academic interventions aligned to their academic needs with varying tiers of intensity. Progress is tracked in an ongoing manner for all students to inform fluid intervention decisions.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_multi_age,"Classrooms include students of many ages, rather than grouping them by age or grade band.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_networking,"The school brokers connections between students and industry professionals, including methods such as job shadows, video chats, etc.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_no_tracking,"Gifted programs are eliminated and barriers to advanced courses (e.g. AP, IB, honors) are removed so that no student is barred from accessing these opportunities. Remediation takes place throughout the regular scope and sequence so that ""lower level"" classes are removed.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_pbl,"Students learn through answering complex questions or solving for real-world problems (e.g. homelessness in their city, or a marketing challenge faced by a real company). Also called problem-based learning, inquiry-based learning, or learning-by-doing.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_peer_to_peer,"The learning environment creates deliberate structures and processes for peer support, e.g. peer mentorship, peer tutoring, peer assessment, accountability partners, etc.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_performance_assessment,"Students apply knowledge or demonstrate a skill in place of traditional assessment, for example, through portfolios, projects, and other displays of progress toward goals.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_quality_materials,"The school has adopted resources and materials designed based on what research shows facilitates effective teaching and learning experiences. High-quality materials have been rigorously reviewed (e.g., EdReports green rating).",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_reallocation_resources,"Distributing school resources equitably, so students receive support and resources according to their need rather than every student receiving the same supports. (Example: assigning most experienced and highest skilled teachers to students needing the most help.)",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_restorative,"Restorative practices are used to resolve conflict and strengthen relationships among individuals and within communities in ways that are intentionally restorative, developmentally appropriate, and equitably applied. (In contrast to reacting to harmful or hurtful behavior with punishment or suspension.)",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_school_enterprises,"Students operate a business or service as part of the learning model (e.g., student-run café, design studio).",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_sel_curriculum,"The learning environment uses a structured curriculum, program, or materials designed to help students develop social and emotional skills.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_sel_integrated,"The learning environment integrates social and emotional learning throughout the academic curriculum and other activities, rather than as a stand-alone class.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_service_learning,"Students engage in meaningful community service to enrich the learning experience, learn civic responsibility, and strengthen their communities.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_student_conferences,"Students plan and lead a meeting including parents and teachers to discuss the student's learning, growth, Individual Education Program (IEP) and/or reclassification from English Learner services if applicable. (As opposed to parent-teacher conferences without students present.)",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_student_data,Students (and families) can access their own learning and assessment data in real time.,Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_student_goals,"Students set and pursue their own learning goals, as well as self-assess their progress.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_student_pace,Students determine their own pace in learning rather than being required to move at the same pace as a whole group.,Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_student_projects,"Students are partners and leaders in designing, implementing, and assessing projects.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_trauma_informed,"Adults are trained to recognize and respond to those who have been impacted by traumatic stress, and students are provided with clear expectations and communication strategies to guide them through stressful situations.",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_tutoring,"Students regularly experience 1:1 or small-group teaching toward a specific learning goal. Note: In high-impact tutoring, students work with a consistent tutor, multiple times per week, in sessions that are integrated with the learning environment's curriculum and schedule (as opposed to a supplemental or out-of-school program).",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_udl,"The learning environment is designed to proactively meet the needs of all learners by identifying barriers to learning in the design of the environment, not in the student. This helps educators differentiate to effectively instruct a diverse group of students, regardless of whether students have an Individualized Education Program (IEP).",Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+practices_youth_employment,The school partners with employers or agencies to offer paid work experiences for students while enrolled during the academic year or summer.,Are any of the following practices being implemented school- or site-wide this school year?,1 if Yes; else 0,School survey
+core_adaptive_content,"Adaptive learning software uses algorithms or artificial intelligence to adapt content to individual learners. This may include tailoring the pace, difficulty, or format of instruction based on real-time assessments of student progress.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_advancement_mastery,"Students advance to new topics when they have demonstrated mastery of previous competencies, rather than advancing with only a minimal passing grade.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_advisories,"Small groups of students meet regularly (daily or weekly, over multiple years) with adult advisors to set learning goals, reflect on progress, and build positive relationships.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_ai_literacy,"Students learn how artificial intelligence systems work, how to critically evaluate AI systems and their output, and how to use AI effectively and responsibly.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_ai_materials,"The learning environment uses artificial intelligence tools to help generate or adapt student-facing learning materials such as rubrics, assignments, assessments, etc.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_ai_productivity,"The learning environment uses artificial intelligence tools to help streamline teacher tasks such as lesson planning, project design, communication, etc.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_ai_tutoring,"Students get additional help and support through software powered by artificial intelligence. The program may give instant feedback, answer questions, and suggest practice problems tailored to each student’s needs, helping them learn at their own pace.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_anti_racist,The learning environment is building a culture of taking direct action to dismantle policies and practices that create or perpetuate inequality between racial groups.,"Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_apprenticeships,"Students engage in paid, multi-year training programs that combine on-the-job learning with related classroom instruction, often leading to industry credentials.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_assessments_agency,"Tests are administered to measure student performance on various dimensions of self-directed learning (e.g., self-awareness, agency, goal-setting and planning, etc.)","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_assessments_career,The learning environment assesses students' readiness to enter the workforce and pursue a career path.,"Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_assessments_deeper,"The learning environment assesses deeper learning and 21st century skills beyond academic content mastery, e.g. communication, collaboration, critical thinking, etc.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_assessments_sel,"The learning environment assesses social-emotional and non-cognitive skills, e.g., self-management, social awareness, relationship skills, etc.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_blended_learning,"Students learn both online and in-person, in which both modalities are connected to provide an integrated learning experience, and with some element of student control over the time, place, path, or pace of learning.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_career_advising,"Students receive ongoing, individualized guidance to explore career interests, navigate pathways, reflect on work-based learning experiences, align coursework to short- and long-term goals, apply to programs or job opportunities, and prepare for next steps after graduation.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_career_exploration,"Students regularly engage in structured career exploration (e.g., industry talks, job shadowing, job fairs, mock interviews, virtual career tours, panels, site visits) that broaden their understanding of future options.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_career_prep,"The career-connected learning question has the definition integrated as part of it but including for reference:
+The school helps students link what they learn in school to real-world futures—through exploration, skill-building, guidance from trusted adults, and hands-on experiences. ","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_client_projects,"As part of their coursework, students work on real-world projects co-designed or sponsored by industry partners.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_coleadership,"The learning environment involves stakeholders in the process of decision-making and communicates how the input gathered from stakeholders informs decision-making. This may include teachers, students, families, community-based organizations, industry-based partners, or others.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_college_advising,"Students receive ongoing, individualized guidance to explore higher education options, align coursework to short- and long-term goals, apply to programs, complete the FAFSA application, and prepare for next steps after graduation.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_community_partnerships,"Partnerships with businesses and the community help to facilitate experiential learning, internships, mentorships, tutoring, etc.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_community_supports,"The learning environment offers (or partners to offer) social and wraparound support services to meet the needs of families and the community at large, e.g. through medical care, nutritional services, adult learning, childcare, family counseling, financial advising.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_competency_education,"The learning environment's model is designed to ensure students are becoming proficient by advancing on demonstrated mastery. May include a deliberate focus on student agency, transparent learning expectations, timely/differentiated supports, varied pacing and pathways, meaningful and formative assessment.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_coop_ed,"Students alternate between school and structured, credit-bearing work placements connected to their studies.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_culturally_responsive,Pedagogy and curriculum are designed to support students who have been marginalized to be independent learners. Core barriers to learning for historically marginalized learners are examined and removed.,"Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_disaggregated_participation_data,"The learning environment tracks data on the extent to which different groups of students (e.g., by race, gender, disability, socioeconomic status) participate in programs to ensure that students have equitable access.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_dual_language,A form of bilingual education in which students are taught literacy and content in two languages.,"Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_early_college,"A hybrid of high school and college, where all students take both high school and college classes simultaneously, earning credit towards a college degree.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_extended_time,"The learning environment increases total instructional time through a longer school day, extended school year, or year-round schedule.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_flexible_staffing,"The learning environment makes creative use of human capital, e.g. through a tutor residency model, outside experts, master teachers or teacher mentors, etc.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_grading_mastery,"Grades are reported on a standards-based report card, and focus on the specific competencies students are expected to develop.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_higher_ed_partnerships,"Formal partnerships with colleges or training providers support students’ learning and postsecondary pathways. This may include dual credit or early college opportunities, transition advising, curriculum or enrichment partnerships, or school models embedded within or affiliated with a higher education institution.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_inclusion,"Students who typically receive pull-out services or instruction in segregated classrooms (e.g., students classified as English Learners, students with disabilities) are integrated with appropriate supports in place to support learning, language ability, and full participation in curriculum.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_industry_credentials,"Students can earn industry-issued or recognized credentials as a verification of a their qualifications or competence, in fields such as agriculture, hospitality & tourism, health, information technology, etc.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_industry_educators,Teachers or coaches with recent industry experience bring real-world expertise into instruction.,"Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_industry_pathways,"The school offers one or more sequences of learning (including both academic and technical courses) focused on a specific industry or career sector, designed to build depth of knowledge and skills related to that field.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_internships,"Students complete structured, supervised workplace experiences aligned to career interests, typically for a defined period and with reflection or credit tied to school goals.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_interoperability,"Data from multiple platforms or software programs is integrated in a ""data dashboard"" reflecting overall student learning and progress.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_learner_profiles,"Profiles extend across multiple years and may include how the student is performing, as well as personal factors like who they are, what inspires them, and how they best learn.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_learning_paths,"Students follow unique learning pathways tailored to their needs, interests, and passions.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_mental_health,The learning environment offers (or partners to offer) comprehensive counseling and mental health services for students.,"Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_mentoring,Students connect with adults in and/or outside of the learning environment for 1:1 mentoring and regular check-in meetings.,"Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_micro_credentials,Students earn verified micro-credentials demonstrating skills linked to employability or technical competencies.,"Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_mtss_academics,"The learning environment has an explicit multi-tiered system of support wherein students progress is monitored for all students, and students who are progressing at a slower pace are provided with structured academic interventions aligned to their academic needs with varying tiers of intensity. Progress is tracked in an ongoing manner for all students to inform fluid intervention decisions.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_multi_age,"Classrooms include students of many ages, rather than grouping them by age or grade band.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_networking,"The school brokers connections between students and industry professionals, including methods such as job shadows, video chats, etc.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_no_tracking,"Gifted programs are eliminated and barriers to advanced courses (e.g. AP, IB, honors) are removed so that no student is barred from accessing these opportunities. Remediation takes place throughout the regular scope and sequence so that ""lower level"" classes are removed.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_pbl,"Students learn through answering complex questions or solving for real-world problems (e.g. homelessness in their city, or a marketing challenge faced by a real company). Also called problem-based learning, inquiry-based learning, or learning-by-doing.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_peer_to_peer,"The learning environment creates deliberate structures and processes for peer support, e.g. peer mentorship, peer tutoring, peer assessment, accountability partners, etc.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_performance_assessment,"Students apply knowledge or demonstrate a skill in place of traditional assessment, for example, through portfolios, projects, and other displays of progress toward goals.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_quality_materials,"The school has adopted resources and materials designed based on what research shows facilitates effective teaching and learning experiences. High-quality materials have been rigorously reviewed (e.g., EdReports green rating).","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_reallocation_resources,"Distributing school resources equitably, so students receive support and resources according to their need rather than every student receiving the same supports. (Example: assigning most experienced and highest skilled teachers to students needing the most help.)","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_restorative,"Restorative practices are used to resolve conflict and strengthen relationships among individuals and within communities in ways that are intentionally restorative, developmentally appropriate, and equitably applied. (In contrast to reacting to harmful or hurtful behavior with punishment or suspension.)","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_school_enterprises,"Students operate a business or service as part of the learning model (e.g., student-run café, design studio).","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_sel_curriculum,"The learning environment uses a structured curriculum, program, or materials designed to help students develop social and emotional skills.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_sel_integrated,"The learning environment integrates social and emotional learning throughout the academic curriculum and other activities, rather than as a stand-alone class.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_service_learning,"Students engage in meaningful community service to enrich the learning experience, learn civic responsibility, and strengthen their communities.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_student_conferences,"Students plan and lead a meeting including parents and teachers to discuss the student's learning, growth, Individual Education Program (IEP) and/or reclassification from English Learner services if applicable. (As opposed to parent-teacher conferences without students present.)","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_student_data,Students (and families) can access their own learning and assessment data in real time.,"Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_student_goals,"Students set and pursue their own learning goals, as well as self-assess their progress.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_student_pace,Students determine their own pace in learning rather than being required to move at the same pace as a whole group.,"Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_student_projects,"Students are partners and leaders in designing, implementing, and assessing projects.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_trauma_informed,"Adults are trained to recognize and respond to those who have been impacted by traumatic stress, and students are provided with clear expectations and communication strategies to guide them through stressful situations.","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_tutoring,"Students regularly experience 1:1 or small-group teaching toward a specific learning goal. Note: In high-impact tutoring, students work with a consistent tutor, multiple times per week, in sessions that are integrated with the learning environment's curriculum and schedule (as opposed to a supplemental or out-of-school program).","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_udl,"The learning environment is designed to proactively meet the needs of all learners by identifying barriers to learning in the design of the environment, not in the student. This helps educators differentiate to effectively instruct a diverse group of students, regardless of whether students have an Individualized Education Program (IEP).","Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+core_youth_employment,The school partners with employers or agencies to offer paid work experiences for students while enrolled during the academic year or summer.,"Of all the practices you just selected, which five do you believe to be most central to your learning environment’s design?",1 if Yes; else 0,School survey
+time_adaptive_content,"Adaptive learning software uses algorithms or artificial intelligence to adapt content to individual learners. This may include tailoring the pace, difficulty, or format of instruction based on real-time assessments of student progress.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_advancement_mastery,"Students advance to new topics when they have demonstrated mastery of previous competencies, rather than advancing with only a minimal passing grade.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_advisories,"Small groups of students meet regularly (daily or weekly, over multiple years) with adult advisors to set learning goals, reflect on progress, and build positive relationships.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_ai_literacy,"Students learn how artificial intelligence systems work, how to critically evaluate AI systems and their output, and how to use AI effectively and responsibly.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_ai_materials,"The learning environment uses artificial intelligence tools to help generate or adapt student-facing learning materials such as rubrics, assignments, assessments, etc.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_ai_productivity,"The learning environment uses artificial intelligence tools to help streamline teacher tasks such as lesson planning, project design, communication, etc.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_ai_tutoring,"Students get additional help and support through software powered by artificial intelligence. The program may give instant feedback, answer questions, and suggest practice problems tailored to each student’s needs, helping them learn at their own pace.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_anti_racist,The learning environment is building a culture of taking direct action to dismantle policies and practices that create or perpetuate inequality between racial groups.,How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_apprenticeships,"Students engage in paid, multi-year training programs that combine on-the-job learning with related classroom instruction, often leading to industry credentials.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_assessments_agency,"Tests are administered to measure student performance on various dimensions of self-directed learning (e.g., self-awareness, agency, goal-setting and planning, etc.)",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_assessments_career,The learning environment assesses students' readiness to enter the workforce and pursue a career path.,How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_assessments_deeper,"The learning environment assesses deeper learning and 21st century skills beyond academic content mastery, e.g. communication, collaboration, critical thinking, etc.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_assessments_sel,"The learning environment assesses social-emotional and non-cognitive skills, e.g., self-management, social awareness, relationship skills, etc.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_blended_learning,"Students learn both online and in-person, in which both modalities are connected to provide an integrated learning experience, and with some element of student control over the time, place, path, or pace of learning.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_career_advising,"Students receive ongoing, individualized guidance to explore career interests, navigate pathways, reflect on work-based learning experiences, align coursework to short- and long-term goals, apply to programs or job opportunities, and prepare for next steps after graduation.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_career_exploration,"Students regularly engage in structured career exploration (e.g., industry talks, job shadowing, job fairs, mock interviews, virtual career tours, panels, site visits) that broaden their understanding of future options.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_career_prep,"The career-connected learning question has the definition integrated as part of it but including for reference:
+The school helps students link what they learn in school to real-world futures—through exploration, skill-building, guidance from trusted adults, and hands-on experiences. ",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_client_projects,"As part of their coursework, students work on real-world projects co-designed or sponsored by industry partners.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_coleadership,"The learning environment involves stakeholders in the process of decision-making and communicates how the input gathered from stakeholders informs decision-making. This may include teachers, students, families, community-based organizations, industry-based partners, or others.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_college_advising,"Students receive ongoing, individualized guidance to explore higher education options, align coursework to short- and long-term goals, apply to programs, complete the FAFSA application, and prepare for next steps after graduation.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_community_partnerships,"Partnerships with businesses and the community help to facilitate experiential learning, internships, mentorships, tutoring, etc.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_community_supports,"The learning environment offers (or partners to offer) social and wraparound support services to meet the needs of families and the community at large, e.g. through medical care, nutritional services, adult learning, childcare, family counseling, financial advising.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_competency_education,"The learning environment's model is designed to ensure students are becoming proficient by advancing on demonstrated mastery. May include a deliberate focus on student agency, transparent learning expectations, timely/differentiated supports, varied pacing and pathways, meaningful and formative assessment.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_coop_ed,"Students alternate between school and structured, credit-bearing work placements connected to their studies.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_culturally_responsive,Pedagogy and curriculum are designed to support students who have been marginalized to be independent learners. Core barriers to learning for historically marginalized learners are examined and removed.,How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_disaggregated_participation_data,"The learning environment tracks data on the extent to which different groups of students (e.g., by race, gender, disability, socioeconomic status) participate in programs to ensure that students have equitable access.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_dual_language,A form of bilingual education in which students are taught literacy and content in two languages.,How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_early_college,"A hybrid of high school and college, where all students take both high school and college classes simultaneously, earning credit towards a college degree.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_extended_time,"The learning environment increases total instructional time through a longer school day, extended school year, or year-round schedule.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_flexible_staffing,"The learning environment makes creative use of human capital, e.g. through a tutor residency model, outside experts, master teachers or teacher mentors, etc.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_grading_mastery,"Grades are reported on a standards-based report card, and focus on the specific competencies students are expected to develop.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_higher_ed_partnerships,"Formal partnerships with colleges or training providers support students’ learning and postsecondary pathways. This may include dual credit or early college opportunities, transition advising, curriculum or enrichment partnerships, or school models embedded within or affiliated with a higher education institution.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_inclusion,"Students who typically receive pull-out services or instruction in segregated classrooms (e.g., students classified as English Learners, students with disabilities) are integrated with appropriate supports in place to support learning, language ability, and full participation in curriculum.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_industry_credentials,"Students can earn industry-issued or recognized credentials as a verification of a their qualifications or competence, in fields such as agriculture, hospitality & tourism, health, information technology, etc.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_industry_educators,Teachers or coaches with recent industry experience bring real-world expertise into instruction.,How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_industry_pathways,"The school offers one or more sequences of learning (including both academic and technical courses) focused on a specific industry or career sector, designed to build depth of knowledge and skills related to that field.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_internships,"Students complete structured, supervised workplace experiences aligned to career interests, typically for a defined period and with reflection or credit tied to school goals.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_interoperability,"Data from multiple platforms or software programs is integrated in a ""data dashboard"" reflecting overall student learning and progress.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_learner_profiles,"Profiles extend across multiple years and may include how the student is performing, as well as personal factors like who they are, what inspires them, and how they best learn.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_learning_paths,"Students follow unique learning pathways tailored to their needs, interests, and passions.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_mental_health,The learning environment offers (or partners to offer) comprehensive counseling and mental health services for students.,How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_mentoring,Students connect with adults in and/or outside of the learning environment for 1:1 mentoring and regular check-in meetings.,How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_micro_credentials,Students earn verified micro-credentials demonstrating skills linked to employability or technical competencies.,How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_mtss_academics,"The learning environment has an explicit multi-tiered system of support wherein students progress is monitored for all students, and students who are progressing at a slower pace are provided with structured academic interventions aligned to their academic needs with varying tiers of intensity. Progress is tracked in an ongoing manner for all students to inform fluid intervention decisions.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_multi_age,"Classrooms include students of many ages, rather than grouping them by age or grade band.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_networking,"The school brokers connections between students and industry professionals, including methods such as job shadows, video chats, etc.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_no_tracking,"Gifted programs are eliminated and barriers to advanced courses (e.g. AP, IB, honors) are removed so that no student is barred from accessing these opportunities. Remediation takes place throughout the regular scope and sequence so that ""lower level"" classes are removed.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_pbl,"Students learn through answering complex questions or solving for real-world problems (e.g. homelessness in their city, or a marketing challenge faced by a real company). Also called problem-based learning, inquiry-based learning, or learning-by-doing.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_peer_to_peer,"The learning environment creates deliberate structures and processes for peer support, e.g. peer mentorship, peer tutoring, peer assessment, accountability partners, etc.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_performance_assessment,"Students apply knowledge or demonstrate a skill in place of traditional assessment, for example, through portfolios, projects, and other displays of progress toward goals.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_quality_materials,"The school has adopted resources and materials designed based on what research shows facilitates effective teaching and learning experiences. High-quality materials have been rigorously reviewed (e.g., EdReports green rating).",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_reallocation_resources,"Distributing school resources equitably, so students receive support and resources according to their need rather than every student receiving the same supports. (Example: assigning most experienced and highest skilled teachers to students needing the most help.)",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_restorative,"Restorative practices are used to resolve conflict and strengthen relationships among individuals and within communities in ways that are intentionally restorative, developmentally appropriate, and equitably applied. (In contrast to reacting to harmful or hurtful behavior with punishment or suspension.)",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_school_enterprises,"Students operate a business or service as part of the learning model (e.g., student-run café, design studio).",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_sel_curriculum,"The learning environment uses a structured curriculum, program, or materials designed to help students develop social and emotional skills.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_sel_integrated,"The learning environment integrates social and emotional learning throughout the academic curriculum and other activities, rather than as a stand-alone class.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_service_learning,"Students engage in meaningful community service to enrich the learning experience, learn civic responsibility, and strengthen their communities.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_student_conferences,"Students plan and lead a meeting including parents and teachers to discuss the student's learning, growth, Individual Education Program (IEP) and/or reclassification from English Learner services if applicable. (As opposed to parent-teacher conferences without students present.)",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_student_data,Students (and families) can access their own learning and assessment data in real time.,How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_student_goals,"Students set and pursue their own learning goals, as well as self-assess their progress.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_student_pace,Students determine their own pace in learning rather than being required to move at the same pace as a whole group.,How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_student_projects,"Students are partners and leaders in designing, implementing, and assessing projects.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_trauma_informed,"Adults are trained to recognize and respond to those who have been impacted by traumatic stress, and students are provided with clear expectations and communication strategies to guide them through stressful situations.",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_tutoring,"Students regularly experience 1:1 or small-group teaching toward a specific learning goal. Note: In high-impact tutoring, students work with a consistent tutor, multiple times per week, in sessions that are integrated with the learning environment's curriculum and schedule (as opposed to a supplemental or out-of-school program).",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_udl,"The learning environment is designed to proactively meet the needs of all learners by identifying barriers to learning in the design of the environment, not in the student. This helps educators differentiate to effectively instruct a diverse group of students, regardless of whether students have an Individualized Education Program (IEP).",How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey
+time_youth_employment,The school partners with employers or agencies to offer paid work experiences for students while enrolled during the academic year or summer.,How long has your learning environment been implementing each of these core practices?,"Less than a year
+1-2 years
+3-4 years
+5+ years
+Not sure",School survey

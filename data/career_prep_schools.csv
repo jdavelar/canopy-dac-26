@@ -1,0 +1,345 @@
+"school_id","school_name","year"
+7,"American Academy of Innovation",2024
+11,"Aspen Academy",2022
+15,"Avalon School",2024
+16,"Avanti High School",2026
+21,"Berrien Springs Virtual School",2022
+22,"Blackstone Academy Charter School",2023
+24,"Boston Day and Evening Academy",2024
+25,"Bronx Arena High School",2019
+26,"Canon City High School",2026
+28,"Center Line High School - Wall to Wall Academies",2021
+32,"Charlotte Lab School",2026
+34,"Childersburg Middle School",2019
+39,"Clarendon High School",2021
+41,"CodeRVA Regional High School",2026
+42,"Columbia Heights Educational Campus (Chec)",2022
+44,"Common Ground High School",2024
+46,"Compass Academy",2019
+47,"Concourse Village Elementary School",2024
+49,"Crosstown High",2021
+52,"DB EXCEL (Kingsport)",2024
+54,"Denver School of Innovation and Sustainable Design",2019
+56,"Design Tech High School",2026
+62,"Early Technical College at Tennessee College of Applied Technology",2021
+64,"USC Hybrid High College Prep",2023
+65,"Elmer G Bondy Intermediate",2021
+66,"Ember Charter School for Mindful Education; Innovation; and Transformation",2026
+67,"Empower Community High School",2022
+69,"EPiC Elementary",2026
+71,"Fannie Lou Hamer Freedom High School",2024
+72,"Farmington High School",2021
+75,"Oakland FlexTech High School",2021
+76,"Flushing International High School",2024
+77,"Francis T Maloney High School",2019
+79,"Frank McCourt High School",2026
+84,"Gibson Ek High School",2026
+90,"Hamilton County Collegiate High at Chattanooga State",2019
+94,"Highline Big Picture",2022
+97,"Horizons Alternative Education School",2024
+98,"Howard Middle School for Math and Science",2026
+100,"Urban Discovery High School",2022
+102,"Innovations High School",2021
+105,"Juab High School",2024
+106,"Kent Innovation High School",2019
+109,"KIPP Academy Lynn Collegiate",2023
+116,"Lindsay Unified High School",2019
+119,"Madison Palmer High School",2022
+120,"Magnolia Montessori For All",2026
+122,"Map Academy Charter School",2024
+127,"MetWest",2019
+130,"Minnesota New Country School",2021
+132,"Mission Vista High School",2024
+134,"Native American Community Academy",2021
+136,"NC School of Science and Mathematics",2019
+137,"Nettleton High School",2019
+138,"New Haven Academy",2023
+139,"New Legacy Charter School",2026
+140,"Noble High School",2024
+141,"Norris Academy",2026
+147,"Oakland High School",2019
+150,"Lab51",2024
+157,"Piedmont High School",2022
+160,"Pioneer Ridge Middle School",2019
+164,"Powderhouse Studios [Nonoperating school]",2019
+165,"Purdue Polytechnic High School - Englewood",2026
+172,"Rooted School New Orleans",2026
+174,"Salem High School",2021
+176,"Sanborn Regional High School",2021
+177,"Schoolcraft High School",2019
+178,"Science and Math Institute",2026
+180,"SEEQS: the School for Examining Essential Questions of Sustainability",2026
+183,"Shawnee High School",2021
+184,"Siloam Springs High School Conversion Charter",2024
+185,"Silverton School",2021
+189,"Social Justice Humanitas Academy",2023
+191,"Solar Preparatory School for Girls",2023
+196,"Stilwell High School",2021
+197,"Strive Prep - RISE",2022
+198,"Stuttgart Junior High School",2021
+199,"Summit Public Schools",2021
+200,"Taft Primary School",2019
+201,"Taos Academy Charter School",2023
+204,"The Metropolitan Regional Career And Technical Center",2022
+205,"The NET Charter High School: Gentilly",2026
+206,"The Young Women's Leadership School of Astoria",2021
+211,"Urban Assembly Maker Academy",2021
+213,"Valley New School",2021
+214,"Valley View Middle School",2019
+218,"Waimea Canyon Middle School",2023
+219,"Warren County High School",2019
+221,"Waukesha STEM Academy Saratoga Campus",2021
+225,"Wheeling High School",2023
+226,"White Mountains Regional High School",2019
+229,"Winterboro High School",2021
+234,"Virtual Learning Academy",2026
+235,"International School of the Americas",2024
+236,"5280 High School",2024
+237,"ACE Leadership High School",2024
+238,"Altona Middle School",2021
+241,"Avonworth High School",2022
+247,"Blue Valley Center for Advanced Professional Studies (CAPS)",2026
+249,"Brockton High School",2021
+251,"City of Bridges High School",2024
+252,"Coastal Leadership Academy",2021
+256,"Da Vinci RISE High",2026
+260,"Dighton Junior-Senior High School",2021
+262,"Durango Big Picture High School",2023
+266,"Embark Education",2024
+267,"Energy Institute High School",2026
+268,"Environmental Charter School",2024
+270,"Escuela Verde",2023
+276,"Grand Rapids Public Museum School",2022
+281,"Health Leadership High School",2026
+291,"International High School at Langley Park",2026
+292,"Intrinsic Charter School",2024
+293,"Iowa BIG",2024
+294,"John J. Cairns High School",2021
+297,"LaFayette Big Picture at LaFayette Junior/Senior High School",2021
+299,"Lead Innovation Studio",2022
+300,"Leominster Center for Excellence",2021
+301,"Liberal High School",2021
+302,"Lincoln Middle School (AR)",2026
+303,"Living School",2024
+308,"Matchbook Learning at Wendell Phillips",2023
+309,"Met Sacramento High School",2021
+311,"Mountain Academy at Teton Science School",2021
+312,"Nashville Big Picture High School",2026
+316,"New Village Girls Academy",2021
+317,"Newark East Side High School",2021
+318,"Newburgh Free Academy West",2024
+319,"Nipmuc Regional High School",2024
+323,"Northeast Academy for Aerospace and Advanced Technologies",2024
+325,"NuVu High School",2026
+329,"Opportunities Academy",2021
+330,"Ottawa High School",2023
+331,"P.K. Yonge",2021
+332,"Pathways High",2023
+340,"R5 High School",2023
+345,"Saint John Paul II",2024
+346,"San Diego Met High School",2024
+347,"San Francisco Day School",2021
+348,"Science Leadership Academy",2026
+349,"Siembra Leadership High School",2021
+353,"South Bronx Community Charter High School",2026
+357,"Tacoma School of the Arts",2021
+358,"Tahoe Expedition Academy",2022
+360,"The Center for Advanced Research and Technology (CART)",2026
+361,"The Net: Central City",2026
+363,"Tri-County Early College High School",2021
+365,"Valley Day School",2021
+368,"Verdi EcoSchool",2024
+369,"Vista Grande Charter High School",2024
+371,"Washtenaw Alliance for Virtual Education (WAVE)",2026
+372,"Welte Education Center",2023
+373,"Wickliffe High School",2021
+380,"Southeast Area Technical High School (SEA-TECH)",2026
+382,"Next STEP High",2026
+383,"Oxford Virtual Academy",2024
+384,"Gull Lake Virtual Partnership",2024
+389,"Central Vermont Career Center",2024
+390,"River Bend Career & Technical Center",2023
+391,"Bellows Free Academy",2021
+395,"Missisquoi Valley Union Middle and High School",2024
+399,"Hilton Head Christian Academy",2021
+406,"Bioscience High School",2023
+408,"Learn4Life Inglewood - Alta Vista Innovation High",2021
+421,"Great Oaks Bridgeport",2022
+423,"Ballou Senior High School",2021
+424,"Anacostia High School",2021
+429,"The Workshop School",2024
+430,"Building 21 Philadelphia",2021
+431,"The U School",2023
+434,"Urban Assembly Charter School for Computer Science (d/b/a """"Comp Sci High"""")",2026
+439,"Jasper High School",2024
+440,"The Museum School of Avondale Estates",2022
+443,"Rooted School Indianapolis",2021
+445,"Lewisburg Elementary",2023
+447,"Mālama Honua Public Charter School",2026
+448,"Ke Kula ʻo Samuel M. Kamakau, LPCS",2023
+452,"Nokomis Regional High",2024
+455,"Uxbridge High School",2026
+457,"Dził Ditł'ooi School of Empowerment, Action, and Perseverance (DEAP)",2026
+458,"The Albuquerque Sign Language Academy",2024
+462,"Spring Grove School",2024
+465,"Paladin Career And Technical High School",2022
+466,"The Forest School",2024
+469,"Da Vinci Schools",2024
+471,"Woodstock Union Middle/High School",2024
+473,"Winooski Middle High School",2023
+475,"Link Learning",2022
+478,"West Michigan Virtual Academy",2024
+480,"Manara Leadership Academy",2024
+493,"Exploration High School",2023
+495,"Revolution School",2024
+498,"Wilder Middle School",2023
+499,"Village High School",2024
+502,"Liberty Academy",2026
+504,"DREAM Charter School",2024
+505,"Brooklyn Free School",2022
+511,"Nyos Charter School",2023
+517,"Career Academy High School",2023
+518,"Richland Two Institute of Innovation (R2i2)",2023
+521,"Middle Park High School",2022
+522,"Yampa Valley High School",2023
+523,"Elevate Academy",2022
+526,"Crossroads FLEX",2023
+527,"Springs Studio For Academic Excellence",2022
+532,"Cabot School",2024
+537,"Northern Cass High School",2024
+539,"Enosburg Falls Junior/Senior High School",2024
+540,"The Delta School",2024
+541,"Clark Street Community School",2024
+542,"Utah Career Path High School",2022
+543,"Milton Senior High School",2022
+544,"Brightworks School",2026
+545,"Acton Academy Venice Beach",2024
+555,"Grayson High School",2026
+565,"Rise Academy",2022
+567,"Springhouse Community School",2023
+569,"The Sycamore School",2026
+571,"Utah Schools for the Deaf and the Blind",2024
+575,"Dayspring Academy",2022
+579,"Chautauqua Charter School",2026
+581,"Vimenti School",2022
+587,"Asu Preparatory Academy Digital",2023
+600,"Coatimundi Middle School",2024
+601,"New Harmony High Institute",2022
+604,"The 1881 Institute",2023
+605,"8 Million Stories",2023
+606,"Build UP",2026
+610,"Portal Schools",2022
+612,"Unidos Homeschool Cooperative",2022
+619,"Vista Innovation and Design Academy",2023
+621,"Da Vinci Connect TK-8",2026
+622,"Georgia Fugees Academy Charter School",2023
+624,"La Promesa",2023
+625,"Lumen High School",2022
+630,"Crotona International High School",2022
+633,"Urban Assembly Unison School",2022
+635,"STREAM School at Hamilton Middle School",2023
+637,"Goshen Post Elementary",2024
+640,"Valor Preparatory Academy of Arizona",2024
+643,"Dekalb Brilliance Academy",2024
+649,"Portland Middle School",2023
+650,"Hamilton High School",2023
+651,"Washington Middle School",2023
+652,"Portland High School",2023
+654,"Colchester High School",2024
+668,"Heartwood Agile Learning Center",2026
+672,"Tapestry Public Charter School",2023
+674,"Fenway High School",2023
+680,"Bennett Day School",2024
+683,"Lighthouse Holyoke",2024
+685,"Innovation Lab High School",2023
+686,"A School Without Walls",2024
+688,"Alabama Aerospace and Aviation High School",2023
+693,"BELIEVE Circle City High School",2023
+694,"Bostonia Global K-14",2024
+699,"Building 21 Allentown",2024
+704,"Compass Rose Harvest",2024
+712,"High School of Commerce",2026
+715,"Las Américas ASPIRA Academy",2023
+727,"Rodriguez Elementary",2024
+745,"Chelsea Opportunity Academy",2023
+746,"Opportunity Academy at Holyoke High School",2024
+747,"Nowell Academy",2023
+748,"Zeta Inwood",2023
+753,"University High School",2024
+754,"Rio Rico High School",2023
+756,"Cibola High School",2024
+757,"San Luis High School",2026
+764,"Robert F. Smith STeAM Academy",2024
+765,"Ednovate Virtual Academy",2026
+772,"AIM Academy",2024
+775,"Phoenix Coding Academy",2024
+776,"PXU City",2023
+777,"Anderson Institute of Technology",2023
+778,"EVOLVE Academy",2026
+780,"Hartford Area Career and Technology Center",2023
+783,"Margarita Muñiz Academy",2023
+784,"Manchester High School",2023
+785,"Rogers High School",2023
+787,"California Area High School",2023
+792,"Kairos Academies",2024
+796,"Schools of Perea",2026
+799,"Codman Academy Charter School",2023
+801,"Rooted School Vancouver",2026
+805,"Campus School",2026
+807,"Koshkonong Trails School",2026
+809,"The Lab School of Memphis",2024
+810,"West Hawaii Explorations Academy",2024
+814,"Colossal Academy",2026
+818,"City High School",2024
+823,"Miss Porter's School",2024
+831,"Cascades Academy",2026
+838,"Vertex Partnership Academies",2026
+842,"Ogden High School",2024
+845,"CityLab Innovation High School",2026
+846,"Monument Mountain Regional High School",2024
+876,"Science Prep Academy",2024
+878,"Aiken New Tech High School",2024
+883,"Transformative Leadership Academy",2024
+885,"Raisbeck Aviation High School",2026
+901,"Morgan Oliver School",2026
+909,"Heritage Charter Academy",2024
+917,"Valiant Cross Academy",2024
+918,"Gordon Bernell Charter School",2024
+921,"The Innovation School",2026
+925,"St. George School",2026
+936,"Alternative Choices in Education at Brookline High School",2024
+937,"Amp Lab at Electric Works",2026
+938,"Leaders Are Legends Academy Inc.",2024
+984,"George Washington Elementary School",2026
+986,"Insight Colearning Center",2026
+991,"REALM Creative Academy",2026
+1000,"STEAM Academy",2026
+1014,"Oklahoma Aviation Academy",2026
+1015,"Summit Atlas",2026
+1022,"Parkside Montessori",2026
+1040,"Gateway High School",2026
+1043,"Spokane Public Montessori",2026
+1090,"Jersey City Global Charter School",2026
+1104,"Animas High School",2026
+1123,"Cherry Creek Innovation Campus",2026
+1599,"The Stead School",2026
+1604,"Elizabeth City-Pasquotank Public Schools Micro School",2026
+1605,"Notre Dame de Sion High School for Girls",2026
+1607,"High Marq Environmental Charter School",2026
+1620,"The Village School",2026
+1625,"Phillips Middle School",2026
+1631,"Math Engineering and Science Academy Charter School (MESA Bushwick)",2026
+1634,"Meridian Medical Arts Charter High School",2026
+1637,"IYC Iovine And Young Center",2026
+1654,"Appoquinimink High School",2026
+1662,"Global Village Academy – North",2026
+1665,"CAST Lead",2026
+1676,"The Early College High School of Emergency Medicine (ECHEM)",2026
+1683,"Horizon Science Academy Columbus High",2026
+1688,"West Michigan Aviation Academy",2026
+1701,"Nature's Gift Microschool (Indiana Microschool Collaborative)",2026
+1707,"SouthTech Preparatory",2026
+1725,"Hempstead Elementary School",2026
+1726,"Hempstead Upper Elementary School",2026
+1727,"Hempstead Middle School",2026
+1728,"Hempstead High School",2026
