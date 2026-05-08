@@ -1,0 +1,12 @@
+Step ,Description,Value,Details,Max value
+1a,CCL is school- or site-wide,1 IF,"School answered ""Yes"" or ""Yes, but not school- or site-wide"" OR nominator answered ""Yes, very strong"" to whether CCL is a central part of the school's overall design.",1
+1b,Public charter school,1 IF,Verified NCES designation is charter,1
+2a,Work-based learning,N selected,Partners offer experiential learning opportunities OR selected one of the following tags: career exploration; internships; project-based learning; industry-recognized credentials; apprenticeships; client projects; industry networking; industry-based partners as co-leaders,9
+2b,Planning and advising,N selected,"CCL reflected in individualized advising, planning, or goal-setting OR selected one of the following tags: career advising & support; college advising & support; 1:1 mentoring; student advisories",5
+2c,Skill development,N selected,"Agency, durable skills, social capital, or work based skills are very important OR Measuring progress toward agency, durable skills, or social capital OR CCL is assessed using measures of workplace competencies or technical skills OR CCL integrated with SEL structures OR selected one of the following tags industry-aligned pathways; micro-credentials and badging; SEL curriculum; assessments for career readiness",13
+2d,Academics,N selected,Academic success is very important OR selected one of the following tags: early college high school; higher education partnerships (Note: Does not include desk research in calculation),3
+3a,Model maturity,1 IF,School is scaling CCL model OR CCL model is mature,1
+3b,School characteristics,Grade levels offered,"Elementary, middle, or high depending on grades offered and can span multiple levels",
+3c,Accessibility,N selected,All students automatically participate in CCL model OR Students participate based on interest/choice OR selected one of the following tags:  MTSS in academics; all courses designed for inclusion; no tracked classes,1
+3d,CCL model,Model described,"Local, state, or national depending on what was selected",
+3e,Focus state,1 IF,"State school is located in Colorado, Florida, Idaho, Indiana, Michigan, New York, or Ohio",

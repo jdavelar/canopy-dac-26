@@ -28,6 +28,20 @@ pacman::p_load(here, rio, tidyverse, ggplot2, tidytext, DT)
 load(here("data/complete_canopy_2026.RData"))
 ```
 
+# Overview
+
+This file walks through each step of the selection process to generate a final list of schools to consider for Future Ready focus sites. It draws on the CCL framework which can be found [here](https://docs.google.com/document/d/1gTtzRsVAylCvOL9Dz-bDkMIgXGXn2la8LNjqPaOGblI/edit?tab=t.d0r39rqbzhlw).  
+
+The file is divided into three broad steps:  
+
+**Step 1** excludes schools that do not fit our global criteria, i.e., they are not CCL schools, either defined through self-reported or nominator data, and they are not charter schools by CCD definition.  
+
+**Step 2** operationalizes the 4 core school design elements in the framework through both exclusion and prioritization steps. Schools that do not exhibit key CCL practices or a focus on developing key skills are dropped, and we collect a score for other important criteria.  
+
+**Step 3** includes additional scores and characteristics we hope to selectively draw across when making final determinations. Schools that do not have a mature CCL model are excluded in this step.  
+
+For each exclusion step, there is a table included for the schools that were dropped from the sample along with the exclusion criteria to understand why they were dropped. The tables are searchable and sortable to pick out potential outliers we want to override a decision for. There is also a running tally of the current sample size at each step.    
+
 ```{r}
 # First need to merge in nominator response to CCL question + CCD school type
 nom <- import(here("data/at_future_ready.csv")) %>% 
@@ -56,6 +70,12 @@ merge <- dat %>%
 
 # Step 1
 
+Step 1 is meant to make explicit our global criteria:  
+-schools are actually doing CCL (step 1a)  
+-schools are public charters (step 1b)  
+
+The primary goal is to filter out schools that do not meet these criteria.
+
 **STARTING N SIZE = 185**
 
 ```{r}
@@ -69,15 +89,21 @@ include <- merge %>%
     TRUE ~ 0
   ),
   # step 1b: Self-disclosed school type is "Public charter school" AND verified NCES designation is charter (drop = 0)
-  step_1b = ifelse(school_type == "Public charter school" & nces_school_type == "Public charter school", 1, 0),
+  step_1b = case_when(
+    nces_school_type == "Public charter school" ~ 1, 
+    TRUE ~ 0),
   total_step_1 = step_1a + step_1b)
 ```
 
-The table below displays the schools that were dropped in step 1a (N = 86). There are two schools that nominators said "Yes, somewhat strong" that we could re-include if necessary:  
+The table below displays the schools that were dropped in step 1a (N = 86).  
+
+These schools were dropped because they reported "No" to the question *Are you implementing career-connected learning school- or site-wide this year?* AND the organization(s) that nominated them did not select "Yes, very strong" to the question *Is career-connected learning a strong part of this school’s overall design?*  
+
+There are two schools that nominators said "Yes, somewhat strong" that we could re-include if necessary:  
 -Montessori del Mundo  
 -The Academy Charter School - Uniondale  
 
-**CURRENT N SIZE = 99**
+**UPDATED N SIZE = 99**
 
 ```{r}
 # Build table with school name, city, state, 1a + response
@@ -87,7 +113,14 @@ include %>%
   datatable(colnames = c("School", "City", "State", "Self-reported CCL", "Nominator reported CCL"))
 ```
 
-The table below displays the schools that were dropped in step 1b (N = 53). There are two schools dropped whose CCD type *is* charter, so propose modifying rule to be about CCD school type only, rather than CCD type AND self-reported = charter.  
+The table below displays the schools that were dropped in step 1b (N = 52).  
+
+These schools were dropped because they are not considered a charter school according to the CCD definition, as verified by the Canopy team and recorded/pulled from our AirTable base (col = `nces school type 2026 check`).  
+
+There is one school that reported being a public charter school for whom we were not able to verify a CCD school type:  
+- Campus School
+
+**UPDATED N SIZE = 47**
 
 ```{r}
 # Build table with school name, city, state, 1b + response
@@ -98,17 +131,27 @@ include %>%
   datatable(colnames = c("School", "City", "State", "Self-reported type", "CCD school type"))
 ```
 
-**CURRENT N SIZE = 45**
+
 
 # Step 2
 
+Step 2 operationalizes the four core school design elements of the CCL framework:  
+-work-based learning (step 2a)  
+-rigorous academic coursework (step 2b)  
+-explicit skill development (step 2c)  
+-planning and advising (step 2d)  
+
+The first goal is to drop schools we don't think meet the most important criteria in these design elements (2a-2c). The second goal is to prioritize those that show evidence across the elements that we think support especially strong models (2a-2d).  
+
+*Note* One exclusion step is not included in this file. For 2b, we hope to drop schools that are severely underperforming. Rather than including a specific benchmark, we will conduct desk research to record those performance metrics for schools in the final sample and discuss performance more holistically as a group to determine whether we feel they should still be highlighted as a focus school or not.
+
 ```{r}
 include_step2 <- include %>% 
-  # step 2a: School selected 1+ of: ccl_partner_opportunities = Partners offer experiential learning opportunities, practices_career_exploration, practices_internships, practices_pbl, practices_industry_credentials, practices_apprenticeships, practices_client_projects (drop = 0)
-  mutate(step_2a = ccl_partner_opportunities + practices_career_exploration + practices_internships + practices_pbl + practices_industry_credentials + practices_apprenticeships + practices_client_projects,
+  # step 2a: School selected 1+ of: ccl_partner_opportunities = Partners offer experiential learning opportunities, practices_career_exploration, practices_internships, practices_pbl, practices_industry_credentials, practices_apprenticeships, practices_client_projects, practices_networking, practices_colead_industry (drop = 0)
+  mutate(step_2a = ccl_partner_opportunities + practices_career_exploration + practices_internships + practices_pbl + practices_industry_credentials + practices_apprenticeships + practices_client_projects + practices_networking + practices_colead_industry,
   # step 2b: School selected: Selected ccl_design_advising = Reflected in individualized advising, planning, or goal-setting, practices_career_advising, practices_college_advising, practices_mentoring, practices_advisories
          step_2b = ccl_design_advising + practices_career_advising + practices_college_advising + practices_mentoring + practices_advisories,
-  # step 2c: School selected: ccl_outcome_agency, ccl_outcome_durable, ccl_outcome_social, ccl_outcome_employment, ccl_design_sel = Integrated with social-emotional learning structures, practices_sel_curriculum (drop = 0)
+  # step 2c: School selected: ccl_outcome_agency, ccl_outcome_durable, ccl_outcome_social, ccl_outcome_employment, ccl_design_sel = Integrated with social-emotional learning structures, practices_sel_curriculum, practices_industry_pathways, practices_micro_credentials (drop = 0)
          ccl_outcome_agency_temp = case_when(
            ccl_outcome_agency == "Very important" ~ 1,
            ccl_outcome_agency == "Somewhat important" ~ 1,
@@ -125,7 +168,7 @@ include_step2 <- include %>%
            ccl_outcome_employment == "Very important" ~ 1,
            ccl_outcome_social == "Somewhat important" ~ 1, 
            TRUE ~ 0),
-         step_2c_mid = ccl_outcome_agency_temp + ccl_outcome_durable_temp + ccl_outcome_social_temp + ccl_outcome_employment_temp + ccl_design_sel,
+         step_2c_mid = ccl_outcome_agency_temp + ccl_outcome_durable_temp + ccl_outcome_social_temp + ccl_outcome_employment_temp + ccl_design_sel + practices_industry_pathways + practices_micro_credentials,
   # step 2c cont: School did NOT select "We do not measure this" for ccl_outcome_agency_measure, ccl_outcome_durable_measure, ccl_outcome_social_measure and selected ccl_design_assessments, practices_assessments_career
          measure_agency_temp = ifelse(ccl_outcome_agency_measure != "We do not measure this", 1, 0),
          measure_durable_temp = ifelse(ccl_outcome_durable_measure != "We do not measure this", 1, 0),
@@ -136,20 +179,43 @@ include_step2 <- include %>%
          step_2d = academic_temp + practices_early_college + practices_higher_ed_partnerships)
 ```
 
-The table below displays the schools that were dropped in step 2a (N = 3). 
+The table below displays the schools that were dropped in step 2a (N = 2).  
+
+These schools were dropped because they did not select any of the following in their survey responses:  
+-"Partners offer experiential learning opportunities" in response to *How do employer or industry partners participate in your school?*  
+-career exploration (tag)  
+-internships (tag)  
+-project-based learning (tag)  
+-industry-recognized credentials (tag)  
+-apprenticeships (tag)  
+-client projects (tag)  
+
+**UPDATED N SIZE = 45**
 
 ```{r}
 include_step2 %>% 
   filter(step_1a != 0) %>% #passed through step 1a
   filter(step_1b != 0) %>% #passed through step 1b
   filter(step_2a == 0) %>% #caught in step 2a
-  select(school_name, school_city, school_state) %>% 
-  datatable(colnames = c("School", "City", "State"))
+  select(school_name, school_city, school_state, ccl_alt_tag) %>% 
+  datatable(colnames = c("School", "City", "State", "Self-reported CCL"))
 ```
 
-**CURRENT N SIZE = 42**
 
-The table below displays the schools that were dropped in step 2c INCLUDE (N = 5).
+The table below displays the schools that were dropped in step 2c (N = 3).  
+
+These schools were dropped because they did not select *Very Important* in response to the following outcomes for the question *How important are the following student outcomes in your school’s CCL approach?*:  
+-agency and self-direction
+-durable skills
+-social capital
+-work-based skills and employability
+
+AND they did not select any of the following tags:  
+-SEL curriculum
+
+It's possible that some schools did not see the CCL questions because they did not indicate they were a CCL school, and therefore their tag selections are the only ones we can rely on from survey data for inclusion/exclusion. We may want to consider alternative criteria with light desk research for these schools in a second round of selection for those schools.
+
+**UPDATED N SIZE = 42**
 
 ```{r }
 include_step2 %>% 
@@ -161,13 +227,12 @@ include_step2 %>%
   datatable(colnames = c("School", "City", "State"))
 ```
 
-**CURRENT N SIZE = 37**
+
 
 # Step 3
 
-Since the current N size is still decent, testing out dropping schools at early stages.  
+Step 3 focuses on additional elements are "nice to haves" or that we want to selectively choose for (e.g., school level or schools in a particular state.) In this case, I have developed a final score for steps 3a-3e so we can see how comprehensively they met each criteria.  
 
-Also added priority for NCSI focus states but can't remember what these are. In proposal narrative I found: "As shown by our letters of support in Appendix B, we have over 25 school leaders, management companies, authorizers, and support organizations ready to participate in a State Leadership Council from Ohio, Michigan, Indiana, Colorado, Florida, and Idaho stakeholders in year one." - Are these the states? That's how they're coded below.
 
 ```{r}
 include_step3 <- include_step2 %>% 
@@ -178,8 +243,8 @@ include_step3 <- include_step2 %>%
          middle = ifelse(grades_middle == 1, "Middle", NA),
          high = ifelse(grades_high == 1, "High", NA)) %>% 
   unite("step_3b", c(elementary, middle, high), na.rm = TRUE, sep = ", ") %>% 
-  #step 3c: School selected: ccl_participation_auto or ccl_participation_interest
-  mutate(step_3c = ccl_participation_auto + ccl_participation_interest,
+  #step 3c: School selected: ccl_participation_auto, ccl_participation_interest, practices_mtss_academics, practices_inclusion, practices_no_tracking
+  mutate(step_3c = ccl_participation_auto + ccl_participation_interest + practices_mtss_academics + practices_inclusion + practices_no_tracking,
   #step 3d: Like 3b, it's maximizing variation across ccl model so include ccl_model_*
          local = ifelse(ccl_model_local == 1, "Local", NA),
          state = ifelse(ccl_model_state == 1, "State", NA),
@@ -193,26 +258,35 @@ include_step3 <- include_step2 %>%
            school_state == "Colorado" ~ 1,
            school_state == "Florida" ~ 1,
            school_state == "Idaho" ~ 1,
+           school_state == "New York" ~ 1,
            TRUE ~ 0
          ))
 ```
 
-The table below displays the schools that were dropped in step 3a (N = 15).
+The table below displays the schools that were dropped in step 3a (N = 17).
+
+These schools were dropped because they did not select the following response to the question *Which best describes your school’s current stage in implementing career-connected learning? Select all that apply*:  
+-scaling  
+-mature  
+
+The other response options included "just getting started," "early," and "other".
+
+**FINAL N SIZE = 25**
 
 ```{r include = FALSE}
 include_step3 %>% 
   filter(step_1a != 0) %>% #passed through step 1a
   filter(step_1b != 0) %>% #passed through step 1b
-  filter(step_2a != 0) %>% #caught in step 2a
-  filter(step_2c_mid != 0) %>% 
-  filter(step_3a == 0) %>% 
-  select(school_name, school_city, school_state) %>% 
-  datatable(colnames = c("School", "City", "State"))
+  filter(step_2a != 0) %>% #passed through step 2a
+  filter(step_2c_mid != 0) %>% #passed through step 2c
+  filter(step_3a == 0) %>% #caught in step 3a
+  select(school_name, school_city, school_state, ccl_model_other_text) %>% 
+  datatable(colnames = c("School", "City", "State", "Text provided if they responded `Other`"))
 ```
 
-**CURRENT N SIZE = 22**
-
 # Summary view
+
+After applying all exclusion criteria listed above, we end up with 25 schools in our final sample to review. The totals for each step are listed in the columns.    
 
 ```{r}
 final_list <- include_step3 %>% 
@@ -225,5 +299,12 @@ final_list <- include_step3 %>%
   mutate(across(everything(), ~ifelse(is.na(.), 0, .))) %>% 
   datatable(colnames = c("School", "City", "State", "Step 1a", "Step 1b", "Step 2a", "Step 2b", "Step 2c", "Step 2d", "Step 3a", "Step 3b", "Step 3c", "Step 3d", "Step 3e"))
 final_list
+```
+
+The final table includes a quick view of what the column totals include.  
+
+```{r}
+import(here("data/criteria_guide.csv")) %>% 
+  datatable()
 ```
 
