@@ -1,0 +1,43 @@
+"short_label","grades_high","selection","n","total","pct"
+"Academic success","High school","Important",68,69,0.985507246376812
+"Academic success","High school","Not important",1,69,0.0144927536231884
+"Academic success","Not high school","Important",23,23,1
+"Agency and self-direction","High school","Important",71,71,1
+"Agency and self-direction","Not high school","Important",23,23,1
+"Belonging","High school","Important",69,70,0.985714285714286
+"Belonging","High school","Not important",1,70,0.0142857142857143
+"Belonging","Not high school","Important",23,23,1
+"Civic engagement and responsibility","High school","Important",64,69,0.927536231884058
+"Civic engagement and responsibility","High school","Not important",5,69,0.072463768115942
+"Civic engagement and responsibility","Not high school","Important",22,23,0.956521739130435
+"Civic engagement and responsibility","Not high school","Not important",1,23,0.0434782608695652
+"Durable skills","High school","Important",70,70,1
+"Durable skills","Not high school","Important",23,23,1
+"Economic mobility","High school","Important",66,69,0.956521739130435
+"Economic mobility","High school","Not important",3,69,0.0434782608695652
+"Economic mobility","Not high school","Important",19,23,0.826086956521739
+"Economic mobility","Not high school","Not important",4,23,0.173913043478261
+"Engagement","High school","Important",71,71,1
+"Engagement","Not high school","Important",23,23,1
+"Higher education access","High school","Important",65,69,0.942028985507246
+"Higher education access","High school","Not important",4,69,0.0579710144927536
+"Higher education access","Not high school","Important",17,23,0.739130434782609
+"Higher education access","Not high school","Not important",6,23,0.260869565217391
+"Higher education success","High school","Important",66,69,0.956521739130435
+"Higher education success","High school","Not important",3,69,0.0434782608695652
+"Higher education success","Not high school","Important",17,23,0.739130434782609
+"Higher education success","Not high school","Not important",6,23,0.260869565217391
+"Identity and purpose","High school","Important",70,70,1
+"Identity and purpose","Not high school","Important",23,23,1
+"Industry credentials","High school","Important",52,69,0.753623188405797
+"Industry credentials","High school","Not important",17,69,0.246376811594203
+"Industry credentials","Not high school","Important",12,23,0.521739130434783
+"Industry credentials","Not high school","Not important",11,23,0.478260869565217
+"Social capital","High school","Important",63,71,0.887323943661972
+"Social capital","High school","Not important",8,71,0.112676056338028
+"Social capital","Not high school","Important",18,23,0.782608695652174
+"Social capital","Not high school","Not important",5,23,0.217391304347826
+"Work-based skills and employability","High school","Important",69,71,0.971830985915493
+"Work-based skills and employability","High school","Not important",2,71,0.028169014084507
+"Work-based skills and employability","Not high school","Important",17,23,0.739130434782609
+"Work-based skills and employability","Not high school","Not important",6,23,0.260869565217391
